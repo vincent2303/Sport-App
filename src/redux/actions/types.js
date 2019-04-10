@@ -1,0 +1,4 @@
+const PUSH_EXERCISE = 'PUSH_EXERCISE';
+const PUSH_MAP = 'PUSH_MAP';
+
+export { PUSH_EXERCISE, PUSH_MAP };

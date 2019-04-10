@@ -10,11 +10,15 @@ import StartButton from '../../components/StartButton';
 
 export default class Home extends Component {
   componentDidMount() {
-    console.log(this.props);
+    const { pushExo } = this.props;
+    setInterval(() => {
+      pushExo();
+    }, 1000);
   }
 
   render() {
-    const { navigation } = this.props;
+    const { navigation, exercises } = this.props;
+    const number = exercises.length;
     return (
       <ImageBackground source={runningManImage} style={style.backgroundImageContainer}>
         <StatusBar hidden />
@@ -25,7 +29,10 @@ export default class Home extends Component {
           <Text style={style.titleLetters}>H</Text>
         </View>
         <View style={style.subTitleContainer}>
-          <Text style={style.subTitle}>Lorem ipsum lorae etoras sus galiacan</Text>
+          <Text style={style.subTitle}>
+            Lorem ipsum lorae etoras sus galiacan
+            {number}
+          </Text>
         </View>
         <StartButton />
       </ImageBackground>
