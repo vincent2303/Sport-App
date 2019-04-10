@@ -8,8 +8,11 @@ import style from './style';
 import DrawerMenu from '../../components/DrawerMenu';
 import StartButton from '../../components/StartButton';
 
-
 export default class Home extends Component {
+  componentDidMount() {
+    console.log(this.props);
+  }
+
   render() {
     const { navigation } = this.props;
     return (
@@ -29,5 +32,3 @@ export default class Home extends Component {
     );
   }
 }
-
-{ /* <Button title="open drawer" onPress={() => { navigation.openDrawer(); }} /> */ }
