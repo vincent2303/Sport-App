@@ -9,36 +9,30 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.darkBlue,
   },
-  backgroundImageContainer: {
+  homeContainer: {
     width: '100%',
     height: '100%',
+    backgroundColor: colors.darkBlue,
   },
-  titleContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
+  logoAndTextContainer: {
+    width: '100%',
+    height: '80%',
     marginTop: 100,
+    flexDirection: 'column',
+    alignItems: 'center',
   },
-  titleLetters: {
-    fontSize: dimensions.fontSize.huge,
-    fontWeight: '200',
-    color: colors.electricYellow,
+  logoContainer: {
+    width: '100%',
+    height: '50%',
   },
-  titleSeparator: {
+  title: {
     fontSize: dimensions.fontSize.big,
-    fontWeight: '200',
-    marginBottom: 10,
-    marginLeft: dimensions.margin,
-    marginRight: dimensions.margin,
-    color: colors.electricYellow,
-  },
-  subTitleContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+    fontWeight: '100',
+    color: colors.white,
   },
   subTitle: {
-    fontSize: dimensions.fontSize.regular,
-    fontWeight: '200',
+    fontSize: dimensions.fontSize.small,
+    fontWeight: '100',
     color: colors.white,
   },
 });

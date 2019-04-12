@@ -1,3 +1,3 @@
-import runningManImage from './running_man.jpg';
+import wolfLogo from './yellowWolfLogo.png';
 
-export { runningManImage };
+export { wolfLogo };
