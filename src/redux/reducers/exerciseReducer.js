@@ -3,10 +3,6 @@ import { PUSH_EXERCISE } from '../actions/types';
 
 const exerciseInitialState = {
   exercises: [],
-  myMap: new Map([
-    [11, 'aa'],
-    ['cc', 'azerty'],
-  ]),
 };
 
 

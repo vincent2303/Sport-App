@@ -9,16 +9,8 @@ import DrawerMenu from '../../components/DrawerMenu';
 import StartButton from '../../components/StartButton';
 
 export default class Home extends Component {
-  componentDidMount() {
-    const { pushExo } = this.props;
-    setInterval(() => {
-      pushExo();
-    }, 1000);
-  }
-
   render() {
-    const { navigation, exercises } = this.props;
-    const number = exercises.length;
+    const { navigation } = this.props;
     return (
       <ImageBackground source={runningManImage} style={style.backgroundImageContainer}>
         <StatusBar hidden />
@@ -29,10 +21,7 @@ export default class Home extends Component {
           <Text style={style.titleLetters}>H</Text>
         </View>
         <View style={style.subTitleContainer}>
-          <Text style={style.subTitle}>
-            Lorem ipsum lorae etoras sus galiacan
-            {number}
-          </Text>
+          <Text style={style.subTitle}>Lorem ipsum lorae etoras sus galiacan</Text>
         </View>
         <StartButton />
       </ImageBackground>
