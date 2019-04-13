@@ -9,6 +9,16 @@ import StartButton from '../../components/StartButton';
 import Logo from '../../components/Logo';
 
 export default class Home extends Component {
+  componentDidMount() {
+    const { exercises, addExercise } = this.props;
+    exercises.push('aaa');
+    addExercise(exercises);
+    // setInterval(() => {
+    //   exercises.push('aaa');
+    //   addExercise(exercises);
+    // }, 1000);
+  }
+
   render() {
     const { navigation } = this.props;
     return (
@@ -20,7 +30,10 @@ export default class Home extends Component {
             <Logo />
           </View>
           <Text style={styles.title}>App Name</Text>
-          <Text style={styles.subTitle}>Lorem ipsum lorae etoras sus galiacan</Text>
+          <Text style={styles.subTitle}>
+            Lorem ipsum lorae etoras sus galiacan
+            {this.props.exercises.length}
+          </Text>
         </View>
         {/* <View style={styles.titleContainer}>
           <Text style={styles.titleLetters}>A</Text>

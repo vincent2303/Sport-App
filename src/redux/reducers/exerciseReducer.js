@@ -16,7 +16,6 @@ function exerciseReducer(immutableState = exerciseInitialState, { type }) {
   switch (type) {
     case PUSH_EXERCISE: {
       const { exercises } = state;
-      exercises.push('aaaa');
       return { ...state, exercises };
     }
     default:
