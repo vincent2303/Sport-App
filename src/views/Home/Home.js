@@ -10,13 +10,13 @@ import Logo from '../../components/Logo';
 
 export default class Home extends Component {
   componentDidMount() {
-    const { exercises, addExercise } = this.props;
-    exercises.push('aaa');
-    addExercise(exercises);
-    // setInterval(() => {
-    //   exercises.push('aaa');
-    //   addExercise(exercises);
-    // }, 1000);
+    const { exercises, setExercises } = this.props;
+    // exercises.push('aaa');
+    // addExercise(exercises);
+    setInterval(() => {
+      exercises.push('aaa');
+      setExercises(exercises);
+    }, 1000);
   }
 
   render() {

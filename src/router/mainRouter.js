@@ -5,12 +5,14 @@ import Exercises from '../views/Exercises';
 import SessionCycle from '../views/SessionCycle';
 import SessionReport from '../views/SessionReport';
 import DrawerContent from '../views/DrawerContent';
+import SplashScreen from '../views/splashScreen';
 
 const secondNav = createStackNavigator({
   Exercises,
 });
 
 const DrawerNavigator = createDrawerNavigator({
+  SplashScreen,
   Home,
   Exercises: secondNav,
   SessionCycle,

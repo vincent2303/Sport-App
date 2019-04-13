@@ -1,4 +1,3 @@
-import transformIntoMutableState from '../utils/mutbaleState';
 import { PUSH_EXERCISE } from '../actions/types';
 
 const exerciseInitialState = {
@@ -11,12 +10,10 @@ const exerciseInitialState = {
 // je peux, avant le return faire ce que je veux mais au moment du return,
 // si j'ai changé qqch, ce qqch doit etre un nvl objet
 
-function exerciseReducer(immutableState = exerciseInitialState, { type }) {
-  const state = transformIntoMutableState(immutableState);
+function exerciseReducer(state = exerciseInitialState, { type, payload }) {
   switch (type) {
     case PUSH_EXERCISE: {
-      const { exercises } = state;
-      return { ...state, exercises };
+      return { ...state, exercises: payload };
     }
     default:
       return { ...state };

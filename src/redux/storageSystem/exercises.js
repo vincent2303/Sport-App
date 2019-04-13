@@ -13,8 +13,8 @@ async function storeExercises(exercises) {
 
 async function getExercises() {
   try {
-    const exercises = await AsyncStorage.getItem(exercisesKey);
-    return exercises;
+    const exercisesString = await AsyncStorage.getItem(exercisesKey);
+    return JSON.parse(exercisesString);
   } catch (err) {
     throw new Error(err);
   }
