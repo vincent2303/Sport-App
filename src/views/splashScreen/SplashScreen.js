@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import loadCoreData from '../../redux/storageSystem/loadCoreData';
-
-// function fakeLoad() {
-//   return new Promise(((resolve) => {
-//     setTimeout(() => {
-//       resolve();
-//     }, 4000);
-//   }));
-// }
+import initApp from '../../redux/storageSystem/initApp';
 
 export default class SplashScreen extends Component {
   async componentWillMount() {
     const { navigation } = this.props;
-    await loadCoreData();
-    navigation.navigate('Home');
+    await initApp();
+    navigation.navigate('Exercises');
   }
 
   render() {

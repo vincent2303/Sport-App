@@ -2,8 +2,10 @@ const exercises = [
   {
     id: 1,
     name: 'pull up',
-    weightType: 'weight',
-    weightValue: 22,
+    weight: {
+      type: 'value',
+      value: 22,
+    },
     repetitionNumber: 3,
     restTime: 60,
     categorie: 'Arms & Shoulders',
@@ -11,8 +13,10 @@ const exercises = [
   {
     id: 2,
     name: 'push up',
-    weightType: 'weight',
-    weightValue: 13,
+    weight: {
+      type: 'value',
+      value: 22,
+    },
     repetitionNumber: 4,
     restTime: 30,
     categorie: 'Arms & Shoulders',
@@ -20,8 +24,10 @@ const exercises = [
   {
     id: 3,
     name: 'Abs',
-    weightType: 'body',
-    weightValue: null,
+    weight: {
+      type: 'body',
+      value: null,
+    },
     repetitionNumber: 2,
     restTime: 90,
     categorie: 'Torso',
@@ -29,8 +35,10 @@ const exercises = [
   {
     id: 4,
     name: 'Abs weight',
-    weightType: 'weight',
-    weightValue: 10,
+    weight: {
+      type: 'value',
+      value: 22,
+    },
     repetitionNumber: 4,
     restTime: 20,
     categorie: 'Torso',
