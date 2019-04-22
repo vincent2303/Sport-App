@@ -2,7 +2,7 @@
 import AsyncStorage from '@react-native-community/async-storage';
 import { loadExercises, setAndStoreDefaultExercises } from './exercises';
 
-const firstConnectionKey = 'AimHighIsFirstConnection11111111';
+const firstConnectionKey = 'AimHighIsFirstConnection';
 
 // load the data and set the result in redux
 async function loadCoreData() {
@@ -23,11 +23,9 @@ async function markFirstConnection() {
 export default async function initApp() {
   const firstConnection = await isFirstConnection();
   if (firstConnection) {
-    console.log('FIRST Connection');
     setAndStoreDefaultExercises();
     markFirstConnection();
   } else {
-    console.log('LOAD CORE DATA');
     await loadCoreData();
   }
 }

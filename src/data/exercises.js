@@ -8,7 +8,7 @@ const exercises = [
     },
     repetitionNumber: 3,
     restTime: 60,
-    categorie: 'Arms & Shoulders',
+    category: 'Arms & Shoulders',
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 30,
-    categorie: 'Arms & Shoulders',
+    category: 'Arms & Shoulders',
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const exercises = [
     },
     repetitionNumber: 2,
     restTime: 90,
-    categorie: 'Torso',
+    category: 'Torso',
   },
   {
     id: 4,
@@ -41,7 +41,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 20,
-    categorie: 'Torso',
+    category: 'Torso',
   },
 ];
 

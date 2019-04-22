@@ -1,7 +1,7 @@
 import { PUSH_EXERCISE } from '../actions/types';
 
 const exerciseInitialState = {
-  exercises: [],
+  exercises: {},
 };
 
 
