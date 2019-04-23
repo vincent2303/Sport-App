@@ -7,6 +7,6 @@ export default StyleSheet.create({
     paddingBottom: 111,
   },
   categroyContainer: {
-    paddingBottom: 100,
+    paddingBottom: 120,
   },
 });

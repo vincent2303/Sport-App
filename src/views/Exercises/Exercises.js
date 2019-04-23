@@ -4,6 +4,7 @@ import { getCategoryMap } from '../../utils/exercises';
 
 import HeaderBackButton from '../../components/HeaderBackButton';
 import ExerciseCategory from '../../components/ExerciseCategory';
+import AddButton from '../../components/StartButton';
 
 import styles from './style';
 import headerStyle from '../../globals/header';
@@ -21,17 +22,20 @@ export default class Exercises extends Component {
     const { exercises } = this.props;
     const categoryMap = getCategoryMap(exercises);
     return (
-      <ScrollView style={styles.container}>
-        <View style={styles.categroyContainer}>
-          {Object.keys(categoryMap).map(categoryName => (
-            <ExerciseCategory
-              key={categoryName}
-              categoryName={categoryName}
-              exerciseArray={categoryMap[categoryName]}
-            />
-          ))}
-        </View>
-      </ScrollView>
+      <View>
+        <ScrollView style={styles.container}>
+          <View style={styles.categroyContainer}>
+            {Object.keys(categoryMap).map(categoryName => (
+              <ExerciseCategory
+                key={categoryName}
+                categoryName={categoryName}
+                exerciseArray={categoryMap[categoryName]}
+              />
+            ))}
+          </View>
+        </ScrollView>
+        <AddButton />
+      </View>
     );
   }
 }
