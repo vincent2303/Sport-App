@@ -21,7 +21,7 @@ async function markFirstConnection() {
 }
 
 export default async function initApp() {
-  const firstConnection = await isFirstConnection();
+  const firstConnection = isFirstConnection();
   if (firstConnection) {
     setAndStoreDefaultExercises();
     markFirstConnection();

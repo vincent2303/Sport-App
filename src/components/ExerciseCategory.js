@@ -8,14 +8,14 @@ import colors from '../globals/colors';
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: dimensions.margin * 2,
+    marginTop: dimensions.margin * 3,
   },
   title: {
     marginLeft: dimensions.margin,
     fontSize: dimensions.fontSize.regular,
     color: colors.white,
-    fontWeight: '200',
-    marginBottom: dimensions.margin,
+    fontWeight: '300',
+    marginBottom: dimensions.margin / 2,
   },
 });
 

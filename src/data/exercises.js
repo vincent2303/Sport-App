@@ -1,4 +1,5 @@
 const exercises = [
+  // Arms & Shoulders
   {
     id: 1,
     name: 'pull up',
@@ -23,6 +24,41 @@ const exercises = [
   },
   {
     id: 3,
+    name: 'push up',
+    weight: {
+      type: 'value',
+      value: 22,
+    },
+    repetitionNumber: 4,
+    restTime: 30,
+    category: 'Arms & Shoulders',
+  },
+  {
+    id: 4,
+    name: 'push up',
+    weight: {
+      type: 'value',
+      value: 22,
+    },
+    repetitionNumber: 4,
+    restTime: 30,
+    category: 'Arms & Shoulders',
+  },
+  {
+    id: 5,
+    name: 'push up',
+    weight: {
+      type: 'value',
+      value: 22,
+    },
+    repetitionNumber: 4,
+    restTime: 30,
+    category: 'Arms & Shoulders',
+  },
+
+  // Torso
+  {
+    id: 6,
     name: 'Abs',
     weight: {
       type: 'body',
@@ -33,7 +69,7 @@ const exercises = [
     category: 'Torso',
   },
   {
-    id: 4,
+    id: 8,
     name: 'Abs weight',
     weight: {
       type: 'value',
@@ -42,6 +78,64 @@ const exercises = [
     repetitionNumber: 4,
     restTime: 20,
     category: 'Torso',
+  },
+  {
+    id: 9,
+    name: 'Abs weight',
+    weight: {
+      type: 'value',
+      value: 22,
+    },
+    repetitionNumber: 4,
+    restTime: 20,
+    category: 'Torso',
+  },
+  // Arms
+  {
+    id: 10,
+    name: 'Abs weight',
+    weight: {
+      type: 'value',
+      value: 22,
+    },
+    repetitionNumber: 4,
+    restTime: 20,
+    category: 'Arms',
+  },
+  {
+    id: 11,
+    name: 'Abs weight',
+    weight: {
+      type: 'value',
+      value: 22,
+    },
+    repetitionNumber: 4,
+    restTime: 20,
+    category: 'Arms',
+  },
+
+  // Back
+  {
+    id: 12,
+    name: 'Abs weight',
+    weight: {
+      type: 'value',
+      value: 22,
+    },
+    repetitionNumber: 4,
+    restTime: 20,
+    category: 'Back',
+  },
+  {
+    id: 13,
+    name: 'Abs weight',
+    weight: {
+      type: 'value',
+      value: 22,
+    },
+    repetitionNumber: 4,
+    restTime: 20,
+    category: 'Back',
   },
 ];
 

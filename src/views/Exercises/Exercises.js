@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
 import { getCategoryMap } from '../../utils/exercises';
 
 import HeaderBackButton from '../../components/HeaderBackButton';
 import ExerciseCategory from '../../components/ExerciseCategory';
 
-import colors from '../../globals/colors';
+import styles from './style';
 import headerStyle from '../../globals/header';
 
 export default class Exercises extends Component {
@@ -21,18 +21,17 @@ export default class Exercises extends Component {
     const { exercises } = this.props;
     const categoryMap = getCategoryMap(exercises);
     return (
-      <View style={{
-        flex: 1, backgroundColor: colors.darkBlue,
-      }}
-      >
-        {Object.keys(categoryMap).map(categoryName => (
-          <ExerciseCategory
-            key={categoryName}
-            categoryName={categoryName}
-            exerciseArray={categoryMap[categoryName]}
-          />
-        ))}
-      </View>
+      <ScrollView style={styles.container}>
+        <View style={styles.categroyContainer}>
+          {Object.keys(categoryMap).map(categoryName => (
+            <ExerciseCategory
+              key={categoryName}
+              categoryName={categoryName}
+              exerciseArray={categoryMap[categoryName]}
+            />
+          ))}
+        </View>
+      </ScrollView>
     );
   }
 }
