@@ -37,12 +37,16 @@ const styles = StyleSheet.create({
   exerciseNameContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: '40%',
+    width: '45%',
+  },
+  multiInfoCOntainer: {
+    flex: 1,
+    flexDirection: 'row',
   },
   infoContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: '20%',
+    width: '33%',
   },
 });
 
@@ -55,17 +59,20 @@ export default function ExerciseLine({ exercise }) {
       <View style={styles.container}>
         <Image source={customExerciseIcon} style={styles.exerciseIcon} />
         <View style={styles.exerciseTextLine}>
+
           <View style={styles.exerciseNameContainer}>
             <Text style={styles.text}>{exercise.name}</Text>
           </View>
-          <View style={styles.infoContainer}>
-            <Text style={styles.text}>{repString}</Text>
-          </View>
-          <View style={styles.infoContainer}>
-            <Text style={styles.text}>{weightString}</Text>
-          </View>
-          <View style={styles.infoContainer}>
-            <Text style={styles.text}>{restString}</Text>
+          <View style={styles.multiInfoCOntainer}>
+            <View style={styles.infoContainer}>
+              <Text style={styles.text}>{repString}</Text>
+            </View>
+            <View style={styles.infoContainer}>
+              <Text style={styles.text}>{weightString}</Text>
+            </View>
+            <View style={styles.infoContainer}>
+              <Text style={styles.text}>{restString}</Text>
+            </View>
           </View>
         </View>
         <Icon
