@@ -6,6 +6,9 @@ export default {
     header: 26,
     regular: 20,
     small: 20,
+
+    // text
+    largeText: 22,
     regularText: 14,
   },
 };
