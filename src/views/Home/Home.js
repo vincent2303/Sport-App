@@ -5,7 +5,7 @@ import {
 import styles from './style';
 
 import DrawerMenu from '../../components/DrawerMenu';
-import StartButton from '../../components/StartButton';
+import CircleButton from '../../components/CircleButton';
 import Logo from '../../components/Logo';
 
 export default class Home extends Component {
@@ -24,7 +24,7 @@ export default class Home extends Component {
             Lorem ipsum lorae etoras sus galiacan
           </Text>
         </View>
-        <StartButton />
+        <CircleButton onPress={null} centerElement={{ type: 'text', value: 'START' }} />
       </View>
     );
   }

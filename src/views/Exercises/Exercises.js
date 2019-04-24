@@ -4,7 +4,7 @@ import { getCategoryMap } from '../../utils/exercises';
 
 import HeaderBackButton from '../../components/HeaderBackButton';
 import ExerciseCategory from '../../components/ExerciseCategory';
-import AddButton from '../../components/StartButton';
+import CircleButton from '../../components/CircleButton';
 
 import styles from './style';
 import headerStyle from '../../globals/header';
@@ -34,7 +34,10 @@ export default class Exercises extends Component {
             ))}
           </View>
         </ScrollView>
-        <AddButton />
+        <CircleButton
+          centerElement={{ type: 'icon', value: 'addIcon' }}
+          onPress={null}
+        />
       </View>
     );
   }
