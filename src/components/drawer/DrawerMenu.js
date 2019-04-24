@@ -1,8 +1,8 @@
 import React from 'react';
 import { TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import colors from '../globals/colors';
-import dimensions from '../globals/dimensions';
+import colors from '../../globals/colors';
+import dimensions from '../../globals/dimensions';
 
 const style = StyleSheet.create({
   container: {

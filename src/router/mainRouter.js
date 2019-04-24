@@ -5,10 +5,12 @@ import Exercises from '../views/Exercises';
 import SessionCycle from '../views/SessionCycle';
 import SessionReport from '../views/SessionReport';
 import DrawerContent from '../views/DrawerContent';
-import SplashScreen from '../views/splashScreen';
+import SplashScreen from '../views/SplashScreen';
+import NewExercise from '../views/NewExercise';
 
 const secondNav = createStackNavigator({
   Exercises,
+  NewExercise,
 });
 
 const DrawerNavigator = createDrawerNavigator({

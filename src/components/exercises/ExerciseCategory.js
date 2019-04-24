@@ -3,8 +3,8 @@ import { View, Text, StyleSheet } from 'react-native';
 import ExerciseLine from './ExerciseLine';
 
 
-import dimensions from '../globals/dimensions';
-import colors from '../globals/colors';
+import dimensions from '../../globals/dimensions';
+import colors from '../../globals/colors';
 
 const styles = StyleSheet.create({
   container: {

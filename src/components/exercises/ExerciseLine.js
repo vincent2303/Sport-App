@@ -3,11 +3,11 @@ import {
   View, Text, Image, TouchableOpacity, StyleSheet,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { getWeightString, getRepString, getRestString } from '../utils/exercises';
+import { getWeightString, getRepString, getRestString } from '../../utils/exercises';
 
-import dimensions from '../globals/dimensions';
-import colors from '../globals/colors';
-import { customExerciseIcon } from '../images';
+import dimensions from '../../globals/dimensions';
+import colors from '../../globals/colors';
+import { customExerciseIcon } from '../../images';
 
 
 const styles = StyleSheet.create({

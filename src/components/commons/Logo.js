@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View, Image,
 } from 'react-native';
-import { wolfLogo } from '../images/index';
+import { wolfLogo } from '../../images/index';
 
 // takes full size of parent, place the logo centered
 

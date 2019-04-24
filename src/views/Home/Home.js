@@ -4,9 +4,9 @@ import {
 } from 'react-native';
 import styles from './style';
 
-import DrawerMenu from '../../components/DrawerMenu';
-import CircleButton from '../../components/CircleButton';
-import Logo from '../../components/Logo';
+import DrawerMenu from '../../components/drawer/DrawerMenu';
+import CircleButton from '../../components/commons/CircleButton';
+import Logo from '../../components/commons/Logo';
 
 export default class Home extends Component {
   render() {

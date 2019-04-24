@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { ScrollView, View } from 'react-native';
 import { getCategoryMap } from '../../utils/exercises';
 
-import HeaderBackButton from '../../components/HeaderBackButton';
-import ExerciseCategory from '../../components/ExerciseCategory';
-import CircleButton from '../../components/CircleButton';
+import HeaderBackButton from '../../components/commons/HeaderBackButton';
+import ExerciseCategory from '../../components/exercises/ExerciseCategory';
+import CircleButton from '../../components/commons/CircleButton';
 
 import styles from './style';
 import headerStyle from '../../globals/header';
@@ -17,6 +17,11 @@ export default class Exercises extends Component {
       <HeaderBackButton onPress={() => navigation.goBack(null)} />
     ),
   });
+
+  onNewExercise = () => {
+    const { navigation } = this.props;
+    navigation.navigate('NewExercise');
+  }
 
   render() {
     const { exercises } = this.props;
@@ -36,7 +41,7 @@ export default class Exercises extends Component {
         </ScrollView>
         <CircleButton
           centerElement={{ type: 'icon', value: 'addIcon' }}
-          onPress={null}
+          onPress={this.onNewExercise}
         />
       </View>
     );

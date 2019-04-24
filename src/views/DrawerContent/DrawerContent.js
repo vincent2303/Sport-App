@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import DrawerItem from '../../components/DrawerItem';
+import DrawerItem from '../../components/drawer/DrawerItem';
 import styles from './style';
 
 export default class DrawerContent extends Component {

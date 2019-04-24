@@ -3,8 +3,8 @@ import {
   View, Text, TouchableOpacity, StyleSheet,
 } from 'react-native';
 
-import dimensions from '../globals/dimensions';
-import colors from '../globals/colors';
+import dimensions from '../../globals/dimensions';
+import colors from '../../globals/colors';
 
 const styles = StyleSheet.create({
   touchableContainer: {

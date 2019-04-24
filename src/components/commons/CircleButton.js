@@ -2,9 +2,9 @@ import React from 'react';
 import {
   Text, View, TouchableOpacity, Image, StyleSheet,
 } from 'react-native';
-import colors from '../globals/colors';
-import dimensions from '../globals/dimensions';
-import { addIcon } from '../images';
+import colors from '../../globals/colors';
+import dimensions from '../../globals/dimensions';
+import { addIcon } from '../../images';
 
 const buttonRadius = 90;
 const styles = StyleSheet.create({
