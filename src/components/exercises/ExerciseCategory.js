@@ -4,7 +4,8 @@ import ExerciseLine from './ExerciseLine';
 
 
 import dimensions from '../../globals/dimensions';
-import colors from '../../globals/colors';
+
+import commonStyles from '../../globals/commonStyles';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,9 +13,6 @@ const styles = StyleSheet.create({
   },
   title: {
     marginLeft: dimensions.margin,
-    fontSize: dimensions.fontSize.regular,
-    color: colors.white,
-    fontWeight: '300',
     marginBottom: dimensions.margin / 2,
   },
 });
@@ -22,7 +20,7 @@ const styles = StyleSheet.create({
 export default function ExerciseCategory({ categoryName, exerciseArray }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
+      <Text style={[commonStyles.AHlargeWhiteText, styles.title]}>
         {categoryName.toUpperCase()}
       </Text>
       {exerciseArray.map(exercise => (

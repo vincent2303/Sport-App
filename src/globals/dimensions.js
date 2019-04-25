@@ -9,6 +9,6 @@ export default {
 
     // text
     largeText: 22,
-    regularText: 14,
+    regularText: 16,
   },
 };

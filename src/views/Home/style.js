@@ -5,15 +5,6 @@ import colors from '../../globals/colors';
 import dimensions from '../../globals/dimensions';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.darkBlue,
-  },
-  homeContainer: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: colors.darkBlue,
-  },
   logoAndTextContainer: {
     width: '100%',
     height: '80%',

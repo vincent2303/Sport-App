@@ -7,12 +7,13 @@ import styles from './style';
 import DrawerMenu from '../../components/drawer/DrawerMenu';
 import CircleButton from '../../components/commons/CircleButton';
 import Logo from '../../components/commons/Logo';
+import commonStyles from '../../globals/commonStyles';
 
 export default class Home extends Component {
   render() {
     const { navigation } = this.props;
     return (
-      <View style={styles.homeContainer}>
+      <View style={commonStyles.AHprimaryContainer}>
         <StatusBar hidden />
         <DrawerMenu onPress={navigation.openDrawer} />
         <View style={styles.logoAndTextContainer}>

@@ -6,8 +6,8 @@ import HeaderBackButton from '../../components/commons/HeaderBackButton';
 import ExerciseCategory from '../../components/exercises/ExerciseCategory';
 import CircleButton from '../../components/commons/CircleButton';
 
-import styles from './style';
 import headerStyle from '../../globals/header';
+import commonStyles from '../../globals/commonStyles';
 
 export default class Exercises extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -27,9 +27,9 @@ export default class Exercises extends Component {
     const { exercises } = this.props;
     const categoryMap = getCategoryMap(exercises);
     return (
-      <View>
-        <ScrollView style={styles.container}>
-          <View style={styles.categroyContainer}>
+      <View style={commonStyles.AHprimaryContainer}>
+        <ScrollView>
+          <View style={commonStyles.buttonSpace}>
             {Object.keys(categoryMap).map(categoryName => (
               <ExerciseCategory
                 key={categoryName}
