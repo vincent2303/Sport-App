@@ -17,15 +17,6 @@ const largeText = {
 export default StyleSheet.create({
 
   // CONTAINER
-  aimHighContainer: {
-    backgroundColor: colors.secondaryBlue,
-    borderLeftWidth: 3,
-    borderLeftColor: colors.electricYellow,
-    width: '100%',
-    padding: 12,
-    paddingLeft: 10,
-    marginBottom: 6,
-  },
   AHprimaryContainer: {
     flex: 1,
     backgroundColor: colors.darkBlue,
@@ -36,6 +27,17 @@ export default StyleSheet.create({
     marginTop: dimensions.margin,
     flexDirection: 'row',
     alignItems: 'center',
+  },
+
+  AHsecondaryContainerWithBorder: {
+    backgroundColor: colors.secondaryBlue,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderLeftWidth: 3,
+    borderLeftColor: colors.electricYellow,
+    padding: dimensions.margin,
+    paddingLeft: dimensions.margin - 3,
+    marginTop: dimensions.margin,
   },
 
   // TEXT
@@ -63,7 +65,15 @@ export default StyleSheet.create({
 
   // ICON
   smallIcon: {
-    width: dimensions.fontSize.small,
-    height: dimensions.fontSize.small,
+    width: 20,
+    height: 20,
+  },
+  mediumIcon: {
+    width: 45,
+    height: 45,
+  },
+  veryLargeIcon: {
+    width: 70,
+    height: 70,
   },
 });

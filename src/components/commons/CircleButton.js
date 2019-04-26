@@ -5,6 +5,7 @@ import {
 import colors from '../../globals/colors';
 import dimensions from '../../globals/dimensions';
 import { addIcon } from '../../images';
+import commonStyles from '../../globals/commonStyles';
 
 const buttonRadius = 90;
 const styles = StyleSheet.create({
@@ -24,24 +25,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  text: {
-    color: 'white',
-    fontSize: 20,
-    fontWeight: '200',
-  },
-  addIcon: {
-    width: 45,
-    height: 45,
-  },
 });
 
 function getCenterElement({ type, value }) {
-  if (type === 'text') return <Text style={styles.text}>{value}</Text>;
+  if (type === 'text') return <Text style={commonStyles.AHlargeWhiteText}>{value}</Text>;
   switch (value) {
     case 'addIcon':
-      return <Image source={addIcon} style={styles.addIcon} />;
+      return <Image source={addIcon} style={commonStyles.mediumIcon} />;
     default:
-      return <Text style={styles.text}>START</Text>;
+      return <Text style={commonStyles.AHlargeWhiteText}>START</Text>;
   }
 }
 
