@@ -34,9 +34,10 @@ const styles = StyleSheet.create({
 });
 
 export default function ExerciseLine({ exercise }) {
-  const weightString = getWeightString(exercise);
-  const repString = getRepString(exercise);
-  const restString = getRestString(exercise);
+  const { weight, repetitionNumber, restTime } = exercise;
+  const weightString = getWeightString(weight);
+  const repString = getRepString(repetitionNumber);
+  const restString = getRestString(restTime);
   return (
     <TouchableOpacity>
       <View style={commonStyles.AHsecondaryContainer}>

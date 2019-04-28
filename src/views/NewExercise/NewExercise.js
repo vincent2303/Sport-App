@@ -47,6 +47,24 @@ export default class NewExercise extends Component {
       this.setState({ focus });
     }
 
+    increaseWeight = () => {
+      let { weight } = this.state;
+      if (!weight) {
+        weight = 0;
+      }
+      weight += 0.5;
+      this.setState({ weight });
+    }
+
+    lowerWeight = () => {
+      let { weight } = this.state;
+      if (!weight) {
+        weight = 0;
+      }
+      weight -= 0.5;
+      this.setState({ weight });
+    }
+
     render() {
       const { categories } = this.props;
       const {
@@ -59,9 +77,9 @@ export default class NewExercise extends Component {
               <NewExerciseIllustration illustrationSize={illustrationSize} />
               <AimHighTextField fieldName="name" onChangeText={this.onChangeName} value={name} />
               <AimHighSelector fieldName="focus" selectionArray={categories} selectedValue={focus} onSelect={this.onSelectFocus} />
-              <AimHighNumericField fieldName="weight" onChangeText={this.onChangeText} value={weight} />
-              <AimHighNumericField fieldName="rep" onChangeText={this.onChangeText} value={rep} />
-              <AimHighNumericField fieldName="rest" onChangeText={this.onChangeText} value={rest} />
+              <AimHighNumericField fieldName="weight" value={weight} increase={this.increaseWeight} lower={this.lowerWeight} />
+              <AimHighNumericField fieldName="rep" onChangeValue={this.onChangeText} value={rep} />
+              <AimHighNumericField fieldName="rest" onChangeValue={this.onChangeText} value={rest} />
               <View style={styles.container} />
             </View>
           </TouchableWithoutFeedback>

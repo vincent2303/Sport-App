@@ -3,11 +3,14 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
 } from 'react-native';
 import commonStyles from '../../globals/commonStyles';
 import dimension from '../../globals/dimensions';
-import colors from '../../globals/colors';
+
+import PlusButton from './PlusButton';
+import MinusButton from './MinusButton';
+
+import { getWeightString, getRepString, getRestString } from '../../utils/exercises';
 
 const styles = StyleSheet.create({
   container: { paddingVertical: 0 },
@@ -22,19 +25,41 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
   },
-  button: {
-    width: 50, height: 45,
-  },
-  addButton: {
-    backgroundColor: colors.green,
-    marginRight: 5,
-  },
-  deleteButton: {
-    backgroundColor: colors.red,
+  separator: {
+    width: 5,
   },
 });
 
-export default function AimHighNumericField({ fieldName }) {
+function RenderValue({ value }) {
+  if (value === null) {
+    // return view so that space-between place the buttons group on the right
+    return <View />;
+  }
+  return (
+    <Text style={commonStyles.AHlargeWhiteText}>
+      {value}
+    </Text>
+  );
+}
+
+function getStringValue({ value, fieldName }) {
+  if (value === null) return null;
+  switch (fieldName) {
+    case 'weight':
+      return getWeightString(value);
+    case 'rep':
+      return getRepString(value);
+    case 'rest':
+      return getRestString(value);
+    default:
+      return null;
+  }
+}
+
+export default function AimHighNumericField({
+  fieldName, value, increase, lower,
+}) {
+  const stringValue = getStringValue({ fieldName, value });
   return (
     <View
       style={[commonStyles.AHsecondaryContainerWithBorder, styles.container]}
@@ -43,19 +68,11 @@ export default function AimHighNumericField({ fieldName }) {
         <Text style={commonStyles.AHlargeWhiteText}>{fieldName.toUpperCase()}</Text>
       </View>
       <View style={styles.lineTextAndButtonContainer}>
-        <Text style={commonStyles.AHlargeWhiteText}>
-          Salur
-        </Text>
+        <RenderValue value={stringValue} />
         <View style={styles.buttonsContainer}>
-          <TouchableOpacity style={[styles.button, styles.addButton]}>
-            <View style={{
-              flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
-            }}
-            >
-              <Text style={{ fontSize: 40, color: colors.white }}>+</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={[styles.button, styles.deleteButton]} />
+          <PlusButton onPress={increase} />
+          <View style={styles.separator} />
+          <MinusButton onPress={lower} />
         </View>
       </View>
     </View>

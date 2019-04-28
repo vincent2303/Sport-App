@@ -5,10 +5,7 @@ const defaultexercises = [
   {
     id: 1,
     name: 'pull up',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 0.5,
     repetitionNumber: 3,
     restTime: 60,
     category: dafaultCategories[0],
@@ -16,10 +13,7 @@ const defaultexercises = [
   {
     id: 2,
     name: 'push up',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 17,
     repetitionNumber: 4,
     restTime: 30,
     category: dafaultCategories[0],
@@ -27,10 +21,7 @@ const defaultexercises = [
   {
     id: 3,
     name: 'push up',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 15,
     repetitionNumber: 4,
     restTime: 30,
     category: dafaultCategories[0],
@@ -38,10 +29,7 @@ const defaultexercises = [
   {
     id: 4,
     name: 'push up',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 12,
     repetitionNumber: 4,
     restTime: 30,
     category: dafaultCategories[0],
@@ -49,10 +37,7 @@ const defaultexercises = [
   {
     id: 5,
     name: 'push up',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 22,
     repetitionNumber: 4,
     restTime: 30,
     category: dafaultCategories[0],
@@ -62,10 +47,7 @@ const defaultexercises = [
   {
     id: 6,
     name: 'Abs',
-    weight: {
-      type: 'body',
-      value: null,
-    },
+    weight: 22,
     repetitionNumber: 2,
     restTime: 90,
     category: dafaultCategories[1],
@@ -73,10 +55,7 @@ const defaultexercises = [
   {
     id: 8,
     name: 'Abs weight',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 22,
     repetitionNumber: 4,
     restTime: 20,
     category: dafaultCategories[1],
@@ -84,10 +63,7 @@ const defaultexercises = [
   {
     id: 9,
     name: 'Abs weight',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 22,
     repetitionNumber: 4,
     restTime: 20,
     category: dafaultCategories[1],
@@ -96,10 +72,7 @@ const defaultexercises = [
   {
     id: 10,
     name: 'Abs weight',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 22,
     repetitionNumber: 4,
     restTime: 20,
     category: dafaultCategories[2],
@@ -107,10 +80,7 @@ const defaultexercises = [
   {
     id: 11,
     name: 'Abs weight',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 22,
     repetitionNumber: 4,
     restTime: 20,
     category: dafaultCategories[2],
@@ -120,10 +90,7 @@ const defaultexercises = [
   {
     id: 12,
     name: 'Abs weight',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 22,
     repetitionNumber: 4,
     restTime: 20,
     category: dafaultCategories[3],
@@ -131,10 +98,7 @@ const defaultexercises = [
   {
     id: 13,
     name: 'Abs weight',
-    weight: {
-      type: 'value',
-      value: 22,
-    },
+    weight: 22,
     repetitionNumber: 4,
     restTime: 20,
     category: dafaultCategories[3],

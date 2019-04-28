@@ -12,26 +12,19 @@ function getCategoryMap(exercises) {
   return exerciseMap;
 }
 
-// get the weight value
-function getWeight(exercise) {
-  const { type, value } = exercise.weight;
-  if (type === 'body') {
+// return the weight string
+function getWeightString(weight) {
+  if (!weight) {
     return 'body';
   }
-  return value;
+  return `${weight} Kg`;
 }
 
-// return the weight string
-function getWeightString(exercise) {
-  return exercise.weight.type === 'body' ? 'body' : `${getWeight(exercise)} Kg`;
+function getRepString(repetitionNumber) {
+  return `${repetitionNumber} Rep`;
 }
 
-function getRepString(exercise) {
-  return `${exercise.repetitionNumber} Rep`;
-}
-
-function getRestString(exercise) {
-  const { restTime } = exercise;
+function getRestString(restTime) {
   if (restTime < 60) {
     return `${restTime}s`;
   }
