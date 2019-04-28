@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import {
   View,
-  KeyboardAvoidingView,
-  Platform,
   Keyboard,
   TouchableWithoutFeedback,
   Dimensions,
-  Text,
 } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import HeaderBackButton from '../../components/commons/HeaderBackButton';
 import headerStyle from '../../globals/header';
 
 import NewExerciseIllustration from '../../components/exercises/NewExerciseIllustration';
 import AimHighTextField from '../../components/commons/AimHighTextField';
 import AimHighSelector from '../../components/commons/AimHighSelector';
+import AimHighNumericField from '../../components/commons/AimHighNumericField';
 
 import commonStyles from '../../globals/commonStyles';
 import styles from './styles';
@@ -34,20 +31,24 @@ export default class NewExercise extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        name: '',
-        focus: '',
-        weight: '',
-        rep: '',
-        rest: '',
+        name: null,
+        focus: null,
+        weight: null,
+        rep: null,
+        rest: null,
       };
     }
 
-    onChangeText = ({ fieldName, text }) => {
-      const stateChange = { [fieldName]: text };
-      this.setState(stateChange);
+    onChangeName = ({ text }) => {
+      this.setState({ name: text });
+    }
+
+    onSelectFocus = (focus) => {
+      this.setState({ focus });
     }
 
     render() {
+      const { categories } = this.props;
       const {
         name, focus, weight, rep, rest,
       } = this.state;
@@ -56,12 +57,11 @@ export default class NewExercise extends Component {
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.innerContainer}>
               <NewExerciseIllustration illustrationSize={illustrationSize} />
-              <AimHighTextField fieldName="name" onChangeText={this.onChangeText} value={name} />
-              <AimHighSelector fieldName="focus" onChangeText={this.onChangeText} value={focus} />
-              <AimHighTextField fieldName="weight" onChangeText={this.onChangeText} value={weight} />
-              <AimHighTextField fieldName="rep" onChangeText={this.onChangeText} value={rep} />
-              <AimHighTextField fieldName="rest" onChangeText={this.onChangeText} value={rest} />
-              <View style={{ height: illustrationSize }} />
+              <AimHighTextField fieldName="name" onChangeText={this.onChangeName} value={name} />
+              <AimHighSelector fieldName="focus" selectionArray={categories} selectedValue={focus} onSelect={this.onSelectFocus} />
+              <AimHighNumericField fieldName="weight" onChangeText={this.onChangeText} value={weight} />
+              <AimHighNumericField fieldName="rep" onChangeText={this.onChangeText} value={rep} />
+              <AimHighNumericField fieldName="rest" onChangeText={this.onChangeText} value={rest} />
               <View style={styles.container} />
             </View>
           </TouchableWithoutFeedback>

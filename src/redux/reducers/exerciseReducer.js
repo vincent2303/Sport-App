@@ -1,7 +1,8 @@
-import { PUSH_EXERCISE } from '../actions/types';
+import { PUSH_EXERCISE, SET_CATEGORIES } from '../actions/types';
 
 const exerciseInitialState = {
   exercises: {},
+  categories: [],
 };
 
 
@@ -14,6 +15,9 @@ function exerciseReducer(state = exerciseInitialState, { type, payload }) {
   switch (type) {
     case PUSH_EXERCISE: {
       return { ...state, exercises: payload };
+    }
+    case SET_CATEGORIES: {
+      return { ...state, categories: payload };
     }
     default:
       return { ...state };

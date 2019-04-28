@@ -11,7 +11,7 @@ export default function AimHighTextField({ fieldName, onChangeText, value }) {
       style={commonStyles.AHsecondaryContainerWithBorder}
       onPress={() => { componentInput.focus(); }}
     >
-      <View style={{ width: '45%' }}>
+      <View style={{ width: '35%' }}>
         <Text style={commonStyles.AHlargeWhiteText}>{fieldName.toUpperCase()}</Text>
       </View>
       <TextInput

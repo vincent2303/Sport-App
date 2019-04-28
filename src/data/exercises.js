@@ -1,4 +1,6 @@
-const exercises = [
+import dafaultCategories from './categories';
+
+const defaultexercises = [
   // Arms & Shoulders
   {
     id: 1,
@@ -9,7 +11,7 @@ const exercises = [
     },
     repetitionNumber: 3,
     restTime: 60,
-    category: 'Arms & Shoulders',
+    category: dafaultCategories[0],
   },
   {
     id: 2,
@@ -20,7 +22,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 30,
-    category: 'Arms & Shoulders',
+    category: dafaultCategories[0],
   },
   {
     id: 3,
@@ -31,7 +33,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 30,
-    category: 'Arms & Shoulders',
+    category: dafaultCategories[0],
   },
   {
     id: 4,
@@ -42,7 +44,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 30,
-    category: 'Arms & Shoulders',
+    category: dafaultCategories[0],
   },
   {
     id: 5,
@@ -53,7 +55,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 30,
-    category: 'Arms & Shoulders',
+    category: dafaultCategories[0],
   },
 
   // Torso
@@ -66,7 +68,7 @@ const exercises = [
     },
     repetitionNumber: 2,
     restTime: 90,
-    category: 'Torso',
+    category: dafaultCategories[1],
   },
   {
     id: 8,
@@ -77,7 +79,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 20,
-    category: 'Torso',
+    category: dafaultCategories[1],
   },
   {
     id: 9,
@@ -88,7 +90,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 20,
-    category: 'Torso',
+    category: dafaultCategories[1],
   },
   // Arms
   {
@@ -100,7 +102,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 20,
-    category: 'Arms',
+    category: dafaultCategories[2],
   },
   {
     id: 11,
@@ -111,7 +113,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 20,
-    category: 'Arms',
+    category: dafaultCategories[2],
   },
 
   // Back
@@ -124,7 +126,7 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 20,
-    category: 'Back',
+    category: dafaultCategories[3],
   },
   {
     id: 13,
@@ -135,8 +137,8 @@ const exercises = [
     },
     repetitionNumber: 4,
     restTime: 20,
-    category: 'Back',
+    category: dafaultCategories[3],
   },
 ];
 
-export default exercises;
+export default defaultexercises;
