@@ -34,8 +34,8 @@ export default class NewExercise extends Component {
         name: null,
         focus: null,
         weight: null,
-        rep: null,
-        rest: null,
+        repetitionNumber: null,
+        restTime: null,
       };
     }
 
@@ -65,11 +65,52 @@ export default class NewExercise extends Component {
       this.setState({ weight });
     }
 
+    increaseRepetitionNumber = () => {
+      let { repetitionNumber } = this.state;
+      if (!repetitionNumber) {
+        repetitionNumber = 0;
+      }
+      repetitionNumber += 1;
+      this.setState({ repetitionNumber });
+    }
+
+    lowerRepetitionNumber = () => {
+      let { repetitionNumber } = this.state;
+      if (!repetitionNumber) {
+        repetitionNumber = 0;
+      }
+      if (repetitionNumber > 0) {
+        repetitionNumber -= 1;
+        this.setState({ repetitionNumber });
+      }
+    }
+
+    increaseRestTime = () => {
+      let { restTime } = this.state;
+      if (!restTime) {
+        restTime = 0;
+      }
+      restTime += 1;
+      this.setState({ restTime });
+    }
+
+    lowerRestTime = () => {
+      let { restTime } = this.state;
+      if (!restTime) {
+        restTime = 0;
+      }
+      if (restTime > 0) {
+        restTime -= 1;
+        this.setState({ restTime });
+      }
+    }
+
     render() {
       const { categories } = this.props;
       const {
-        name, focus, weight, rep, rest,
+        name, focus, weight, repetitionNumber, restTime,
       } = this.state;
+      console.log('restTime', restTime);
       return (
         <View style={commonStyles.AHprimaryContainer}>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -85,8 +126,21 @@ export default class NewExercise extends Component {
                 lower={this.lowerWeight}
                 holdMode
               />
-              <AimHighNumericField fieldName="rep" onChangeValue={this.onChangeText} value={rep} />
-              <AimHighNumericField fieldName="rest" onChangeValue={this.onChangeText} value={rest} />
+              <AimHighNumericField
+                fieldName="rep"
+                type="repetitionNumber"
+                increase={this.increaseRepetitionNumber}
+                lower={this.lowerRepetitionNumber}
+                value={repetitionNumber}
+              />
+              <AimHighNumericField
+                fieldName="rest"
+                type="restTime"
+                increase={this.increaseRestTime}
+                lower={this.lowerRestTime}
+                value={restTime}
+                holdMode
+              />
               <View style={styles.container} />
             </View>
           </TouchableWithoutFeedback>
