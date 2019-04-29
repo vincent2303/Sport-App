@@ -10,7 +10,7 @@ import dimension from '../../globals/dimensions';
 import PlusButton from './PlusButton';
 import MinusButton from './MinusButton';
 
-import { getWeightString, getRepString, getRestString } from '../../utils/exercises';
+import AimHighDynamicValue from './AimHighDynamicValue';
 
 const styles = StyleSheet.create({
   container: { paddingVertical: 0 },
@@ -30,36 +30,10 @@ const styles = StyleSheet.create({
   },
 });
 
-function RenderValue({ value }) {
-  if (value === null) {
-    // return view so that space-between place the buttons group on the right
-    return <View />;
-  }
-  return (
-    <Text style={commonStyles.AHlargeWhiteText}>
-      {value}
-    </Text>
-  );
-}
-
-function getStringValue({ value, fieldName }) {
-  if (value === null) return null;
-  switch (fieldName) {
-    case 'weight':
-      return getWeightString(value);
-    case 'rep':
-      return getRepString(value);
-    case 'rest':
-      return getRestString(value);
-    default:
-      return null;
-  }
-}
 
 export default function AimHighNumericField({
-  fieldName, value, increase, lower,
+  fieldName, value, increase, lower, type, holdMode,
 }) {
-  const stringValue = getStringValue({ fieldName, value });
   return (
     <View
       style={[commonStyles.AHsecondaryContainerWithBorder, styles.container]}
@@ -68,11 +42,11 @@ export default function AimHighNumericField({
         <Text style={commonStyles.AHlargeWhiteText}>{fieldName.toUpperCase()}</Text>
       </View>
       <View style={styles.lineTextAndButtonContainer}>
-        <RenderValue value={stringValue} />
+        <AimHighDynamicValue value={value} type={type} />
         <View style={styles.buttonsContainer}>
-          <PlusButton onPress={increase} />
+          <PlusButton onPress={increase} holdMode={holdMode} />
           <View style={styles.separator} />
-          <MinusButton onPress={lower} />
+          <MinusButton onPress={lower} holdMode={holdMode} />
         </View>
       </View>
     </View>

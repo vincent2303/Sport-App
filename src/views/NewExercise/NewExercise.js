@@ -52,7 +52,7 @@ export default class NewExercise extends Component {
       if (!weight) {
         weight = 0;
       }
-      weight += 0.5;
+      weight += 0.1;
       this.setState({ weight });
     }
 
@@ -61,7 +61,7 @@ export default class NewExercise extends Component {
       if (!weight) {
         weight = 0;
       }
-      weight -= 0.5;
+      weight -= 0.1;
       this.setState({ weight });
     }
 
@@ -77,7 +77,14 @@ export default class NewExercise extends Component {
               <NewExerciseIllustration illustrationSize={illustrationSize} />
               <AimHighTextField fieldName="name" onChangeText={this.onChangeName} value={name} />
               <AimHighSelector fieldName="focus" selectionArray={categories} selectedValue={focus} onSelect={this.onSelectFocus} />
-              <AimHighNumericField fieldName="weight" value={weight} increase={this.increaseWeight} lower={this.lowerWeight} />
+              <AimHighNumericField
+                fieldName="weight"
+                type="weight"
+                value={weight}
+                increase={this.increaseWeight}
+                lower={this.lowerWeight}
+                holdMode
+              />
               <AimHighNumericField fieldName="rep" onChangeValue={this.onChangeText} value={rep} />
               <AimHighNumericField fieldName="rest" onChangeValue={this.onChangeText} value={rest} />
               <View style={styles.container} />

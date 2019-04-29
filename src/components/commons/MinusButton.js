@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   View,
   StyleSheet,
@@ -24,15 +24,38 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function MinusButton({ onPress }) {
-  return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
-      <View style={styles.IconContainer}>
-        <Image
-          source={whiteMinus}
-          style={styles.iconStyle}
-        />
-      </View>
-    </TouchableOpacity>
-  );
+export default class MinusButton extends Component {
+  constructor(props) {
+    super(props);
+    this.timer = null;
+  }
+
+  render() {
+    const {
+      onPress,
+      holdMode,
+    } = this.props;
+    const touchableOpacityPressProps = {};
+    if (holdMode) {
+      touchableOpacityPressProps.onPressIn = () => {
+        onPress();
+        this.timer = setInterval(onPress, 100);
+      };
+      touchableOpacityPressProps.onPressOut = () => {
+        clearTimeout(this.timer);
+      };
+    } else {
+      touchableOpacityPressProps.onPress = onPress;
+    }
+    return (
+      <TouchableOpacity style={styles.container} {...touchableOpacityPressProps}>
+        <View style={styles.IconContainer}>
+          <Image
+            source={whiteMinus}
+            style={styles.iconStyle}
+          />
+        </View>
+      </TouchableOpacity>
+    );
+  }
 }
