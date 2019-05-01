@@ -31,8 +31,9 @@ const styles = StyleSheet.create({
 });
 
 function CategoryPicker({
-  visible, selectionArray, closePicker, onSelect, selectedValue,
+  visible, categories, closePicker, onSelect, selectedValue,
 }) {
+  const categoriesIdArray = Object.keys(categories);
   return (
     <Modal
       transparent
@@ -50,13 +51,15 @@ function CategoryPicker({
             itemStyle={styles.pickerTextStyle}
             onValueChange={(itemValue) => { onSelect(itemValue); }}
           >
-            { selectionArray.map(selectionString => (
-              <Picker.Item
-                key={selectionString}
-                label={selectionString.toUpperCase()}
-                value={selectionString}
-              />
-            ))}
+            {
+              categoriesIdArray.map(categoryId => (
+                <Picker.Item
+                  key={categoryId}
+                  label={categories[categoryId].toUpperCase()}
+                  value={categoryId}
+                />
+              ))
+            }
           </Picker>
         </View>
       </View>
@@ -90,9 +93,10 @@ export default class AimHighSelector extends Component {
 
   render() {
     const {
-      fieldName, selectionArray, selectedValue, onSelect,
+      fieldName, categories, selectedValue, onSelect,
     } = this.props;
     const { visible } = this.state;
+
     return (
       <TouchableOpacity
         style={commonStyles.AHsecondaryContainerWithBorder}
@@ -101,10 +105,10 @@ export default class AimHighSelector extends Component {
         <View style={{ width: '35%' }}>
           <Text style={commonStyles.AHlargeWhiteText}>{fieldName.toUpperCase()}</Text>
         </View>
-        <SelectionValue selectedValue={selectedValue} />
+        <SelectionValue selectedValue={categories[selectedValue]} />
         <CategoryPicker
           visible={visible}
-          selectionArray={selectionArray}
+          categories={categories}
           selectedValue={selectedValue}
           closePicker={this.closePicker}
           onSelect={onSelect}

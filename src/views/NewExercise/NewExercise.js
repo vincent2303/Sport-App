@@ -12,6 +12,7 @@ import NewExerciseIllustration from '../../components/exercises/NewExerciseIllus
 import AimHighTextField from '../../components/commons/AimHighTextField';
 import AimHighSelector from '../../components/commons/AimHighSelector';
 import AimHighNumericField from '../../components/commons/AimHighNumericField';
+import RectangleButton from '../../components/commons/RectangleButton';
 
 import commonStyles from '../../globals/commonStyles';
 import styles from './styles';
@@ -32,7 +33,7 @@ export default class NewExercise extends Component {
       super(props);
       this.state = {
         name: null,
-        focus: null,
+        categoryId: null,
         weight: null,
         repetitionNumber: null,
         restTime: null,
@@ -43,8 +44,8 @@ export default class NewExercise extends Component {
       this.setState({ name: text });
     }
 
-    onSelectFocus = (focus) => {
-      this.setState({ focus });
+    onSelectFocus = (categoryId) => {
+      this.setState({ categoryId });
     }
 
     increaseWeight = () => {
@@ -108,16 +109,24 @@ export default class NewExercise extends Component {
     render() {
       const { categories } = this.props;
       const {
-        name, focus, weight, repetitionNumber, restTime,
+        name, categoryId, weight, repetitionNumber, restTime,
       } = this.state;
-      console.log('restTime', restTime);
       return (
         <View style={commonStyles.AHprimaryContainer}>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.innerContainer}>
               <NewExerciseIllustration illustrationSize={illustrationSize} />
-              <AimHighTextField fieldName="name" onChangeText={this.onChangeName} value={name} />
-              <AimHighSelector fieldName="focus" selectionArray={categories} selectedValue={focus} onSelect={this.onSelectFocus} />
+              <AimHighTextField
+                fieldName="name"
+                onChangeText={this.onChangeName}
+                value={name}
+              />
+              <AimHighSelector
+                fieldName="focus"
+                categories={categories}
+                selectedValue={categoryId}
+                onSelect={this.onSelectFocus}
+              />
               <AimHighNumericField
                 fieldName="weight"
                 type="weight"
@@ -142,6 +151,7 @@ export default class NewExercise extends Component {
                 holdMode
               />
               <View style={styles.container} />
+              <RectangleButton onpress={this.submitExercise} />
             </View>
           </TouchableWithoutFeedback>
         </View>

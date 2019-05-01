@@ -20,6 +20,7 @@ export default function AimHighTextField({ fieldName, onChangeText, value }) {
         ref={(input) => { componentInput = input; }}
         value={value}
         autoCapitalize="characters"
+        autoCorrect={false}
       />
     </TouchableOpacity>
   );

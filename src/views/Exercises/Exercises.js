@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ScrollView, View } from 'react-native';
-import { getCategoryMap } from '../../utils/exercises';
+import { getExercisePerCategoryIdMap } from '../../utils/exercises';
 
 import HeaderBackButton from '../../components/commons/HeaderBackButton';
 import ExerciseCategory from '../../components/exercises/ExerciseCategory';
@@ -24,17 +24,17 @@ export default class Exercises extends Component {
   }
 
   render() {
-    const { exercises } = this.props;
-    const categoryMap = getCategoryMap(exercises);
+    const { exercises, categories } = this.props;
+    const exercisePerCategoryIdMap = getExercisePerCategoryIdMap({ exercises, categories });
     return (
       <View style={commonStyles.AHprimaryContainer}>
         <ScrollView>
           <View style={commonStyles.buttonSpace}>
-            {Object.keys(categoryMap).map(categoryName => (
+            {Object.keys(exercisePerCategoryIdMap).map(categoryId => (
               <ExerciseCategory
-                key={categoryName}
-                categoryName={categoryName}
-                exerciseArray={categoryMap[categoryName]}
+                key={categoryId}
+                categoryName={categories[categoryId]}
+                exerciseArray={exercisePerCategoryIdMap[categoryId]}
               />
             ))}
           </View>

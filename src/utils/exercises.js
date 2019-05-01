@@ -1,15 +1,14 @@
 // input exercises array; output map of exercises by category
-function getCategoryMap(exercises) {
-  const exerciseMap = {};
-  exercises.forEach((exercise) => {
-    const { category } = exercise;
-    if (exerciseMap[category]) {
-      exerciseMap[category].push(exercise);
-    } else {
-      exerciseMap[category] = [exercise];
-    }
+function getExercisePerCategoryIdMap({ exercises, categories }) {
+  const categoryIdArray = Object.keys(categories);
+  const exercisePerCategoryIdMap = {};
+  categoryIdArray.forEach((categoryId) => {
+    exercisePerCategoryIdMap[categoryId] = [];
   });
-  return exerciseMap;
+  exercises.forEach((exercise) => {
+    exercisePerCategoryIdMap[exercise.categoryId].push(exercise);
+  });
+  return exercisePerCategoryIdMap;
 }
 
 // return the weight string
@@ -37,5 +36,5 @@ function getRestString(restTime) {
 }
 
 export {
-  getCategoryMap, getWeightString, getRepString, getRestString,
+  getExercisePerCategoryIdMap, getWeightString, getRepString, getRestString,
 };

@@ -1,5 +1,3 @@
-import dafaultCategories from './categories';
-
 const defaultexercises = [
   // Arms & Shoulders
   {
@@ -8,7 +6,7 @@ const defaultexercises = [
     weight: 0.5,
     repetitionNumber: 3,
     restTime: 60,
-    category: dafaultCategories[0],
+    categoryId: 0,
   },
   {
     id: 2,
@@ -16,7 +14,7 @@ const defaultexercises = [
     weight: 17,
     repetitionNumber: 4,
     restTime: 30,
-    category: dafaultCategories[0],
+    categoryId: 0,
   },
   {
     id: 3,
@@ -24,7 +22,7 @@ const defaultexercises = [
     weight: 15,
     repetitionNumber: 4,
     restTime: 30,
-    category: dafaultCategories[0],
+    categoryId: 0,
   },
   {
     id: 4,
@@ -32,7 +30,7 @@ const defaultexercises = [
     weight: 12,
     repetitionNumber: 4,
     restTime: 30,
-    category: dafaultCategories[0],
+    categoryId: 0,
   },
   {
     id: 5,
@@ -40,7 +38,7 @@ const defaultexercises = [
     weight: 22,
     repetitionNumber: 4,
     restTime: 30,
-    category: dafaultCategories[0],
+    categoryId: 0,
   },
 
   // Torso
@@ -50,7 +48,7 @@ const defaultexercises = [
     weight: 22,
     repetitionNumber: 2,
     restTime: 90,
-    category: dafaultCategories[1],
+    categoryId: 1,
   },
   {
     id: 8,
@@ -58,7 +56,7 @@ const defaultexercises = [
     weight: 22,
     repetitionNumber: 4,
     restTime: 20,
-    category: dafaultCategories[1],
+    categoryId: 1,
   },
   {
     id: 9,
@@ -66,8 +64,9 @@ const defaultexercises = [
     weight: 22,
     repetitionNumber: 4,
     restTime: 20,
-    category: dafaultCategories[1],
+    categoryId: 1,
   },
+
   // Arms
   {
     id: 10,
@@ -75,7 +74,7 @@ const defaultexercises = [
     weight: 22,
     repetitionNumber: 4,
     restTime: 20,
-    category: dafaultCategories[2],
+    categoryId: 2,
   },
   {
     id: 11,
@@ -83,7 +82,7 @@ const defaultexercises = [
     weight: 22,
     repetitionNumber: 4,
     restTime: 20,
-    category: dafaultCategories[2],
+    categoryId: 2,
   },
 
   // Back
@@ -93,7 +92,7 @@ const defaultexercises = [
     weight: 22,
     repetitionNumber: 4,
     restTime: 20,
-    category: dafaultCategories[3],
+    categoryId: 3,
   },
   {
     id: 13,
@@ -101,7 +100,7 @@ const defaultexercises = [
     weight: 22,
     repetitionNumber: 4,
     restTime: 20,
-    category: dafaultCategories[3],
+    categoryId: 3,
   },
 ];
 

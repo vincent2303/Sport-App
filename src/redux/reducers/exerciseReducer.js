@@ -2,7 +2,7 @@ import { PUSH_EXERCISE, SET_CATEGORIES } from '../actions/types';
 
 const exerciseInitialState = {
   exercises: {},
-  categories: [],
+  categories: {},
 };
 
 
