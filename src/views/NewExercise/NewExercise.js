@@ -14,6 +14,8 @@ import AimHighSelector from '../../components/commons/AimHighSelector';
 import AimHighNumericField from '../../components/commons/AimHighNumericField';
 import RectangleButton from '../../components/commons/RectangleButton';
 
+import { idGenerator } from '../../utils/idGenerators';
+
 import commonStyles from '../../globals/commonStyles';
 import styles from './styles';
 
@@ -106,6 +108,15 @@ export default class NewExercise extends Component {
       }
     }
 
+    submitExercise = () => {
+      const exerciseToSubmit = this.state;
+      exerciseToSubmit.id = idGenerator();
+      const { exercises, setExercises } = this.props;
+      console.log('exercisses props:', exercises);
+      exercises.push(exerciseToSubmit);
+      setExercises(exercises);
+    }
+
     render() {
       const { categories } = this.props;
       const {
@@ -151,7 +162,11 @@ export default class NewExercise extends Component {
                 holdMode
               />
               <View style={styles.container} />
-              <RectangleButton onpress={this.submitExercise} />
+              <RectangleButton
+                title="create"
+                type="add"
+                onPress={this.submitExercise}
+              />
             </View>
           </TouchableWithoutFeedback>
         </View>

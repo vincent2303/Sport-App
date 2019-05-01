@@ -8,6 +8,7 @@ function getExercisePerCategoryIdMap({ exercises, categories }) {
   exercises.forEach((exercise) => {
     exercisePerCategoryIdMap[exercise.categoryId].push(exercise);
   });
+
   return exercisePerCategoryIdMap;
 }
 
@@ -35,6 +36,39 @@ function getRestString(restTime) {
   return `${minuteValue}m ${secondeValue}s`;
 }
 
+function generateCategoriesObject(categoriesArray) {
+  const categories = {};
+  categoriesArray.forEach((category) => {
+    categories[category.id] = category;
+  });
+  return categories;
+}
+
+function getCategoryNameToCategoryIdMap(categories) {
+  const categoryNameToCategoryIdMap = new Map();
+  Object.keys(categories).forEach((categoryId) => {
+    categoryNameToCategoryIdMap.set(categories[categoryId].name, categoryId);
+  });
+  return categoryNameToCategoryIdMap;
+}
+
+/* eslint no-param-reassign: 0 */
+function assignCategoryIdToExerciseArray({ assignment, categories }) {
+  const categoryNameToCategoryIdMap = getCategoryNameToCategoryIdMap(categories);
+  Object.keys(assignment).forEach((categoryName) => {
+    const exerciseArray = assignment[categoryName];
+    const categoryId = categoryNameToCategoryIdMap.get(categoryName);
+    exerciseArray.forEach((exercise) => {
+      exercise.categoryId = categoryId;
+    });
+  });
+}
+
 export {
-  getExercisePerCategoryIdMap, getWeightString, getRepString, getRestString,
+  getExercisePerCategoryIdMap,
+  getWeightString,
+  getRepString,
+  getRestString,
+  generateCategoriesObject,
+  assignCategoryIdToExerciseArray,
 };

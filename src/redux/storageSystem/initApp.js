@@ -1,6 +1,11 @@
 
 import AsyncStorage from '@react-native-community/async-storage';
-import { loadExercises, setAndStoreDefaultExercises } from './exercises';
+import {
+  loadExercises,
+  setAndStoreDefaultExercises,
+  loadCategories,
+  setAndStoreDefaultCategories,
+} from './exercises';
 
 const firstConnectionKey = 'AimHighIsFirstConnection';
 
@@ -8,6 +13,7 @@ const firstConnectionKey = 'AimHighIsFirstConnection';
 async function loadCoreData() {
   await Promise.all([
     loadExercises(),
+    loadCategories(),
   ]);
 }
 
@@ -21,9 +27,10 @@ async function markFirstConnection() {
 }
 
 export default async function initApp() {
-  const firstConnection = isFirstConnection();
+  const firstConnection = await isFirstConnection();
   if (firstConnection) {
     setAndStoreDefaultExercises();
+    setAndStoreDefaultCategories();
     markFirstConnection();
   } else {
     await loadCoreData();

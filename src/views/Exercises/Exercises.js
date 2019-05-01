@@ -33,7 +33,7 @@ export default class Exercises extends Component {
             {Object.keys(exercisePerCategoryIdMap).map(categoryId => (
               <ExerciseCategory
                 key={categoryId}
-                categoryName={categories[categoryId]}
+                categoryName={categories[categoryId].name}
                 exerciseArray={exercisePerCategoryIdMap[categoryId]}
               />
             ))}

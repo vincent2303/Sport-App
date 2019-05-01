@@ -11,7 +11,6 @@ const styles = StyleSheet.create({
   container: {
     width: 200,
     height: 45,
-    backgroundColor: colors.green,
     position: 'absolute',
     bottom: dimensions.margin,
     alignSelf: 'center',
@@ -21,13 +20,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  greenColor: {
+    backgroundColor: colors.green,
+  },
+  redColor: {
+    backgroundColor: colors.red,
+  },
 });
 
-export default function RectangleButton({ onPress }) {
+function getBackgroundStyle(type) {
+  switch (type) {
+    case 'add':
+      return styles.greenColor;
+    case 'delete':
+      return styles.redColor;
+    default:
+      return styles.greenColor;
+  }
+}
+
+export default function RectangleButton({ onPress, title, type }) {
+  const backgroundStyle = getBackgroundStyle(type);
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity style={[styles.container, backgroundStyle]} onPress={onPress}>
       <View style={styles.textContainer}>
-        <Text style={commoStyle.AHlargeWhiteText}>CREATE</Text>
+        <Text style={commoStyle.AHlargeWhiteText}>{title.toUpperCase()}</Text>
       </View>
     </TouchableOpacity>
 

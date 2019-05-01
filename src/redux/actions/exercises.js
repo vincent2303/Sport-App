@@ -5,12 +5,9 @@ const setExerciseAction = exercises => ({
   payload: exercises,
 });
 
-const setCategoriesAction = (categories) => {
-  const newCategories = Object.assign({}, categories);
-  return ({
-    type: SET_CATEGORIES,
-    payload: newCategories,
-  });
-};
+const setCategoriesAction = categories => ({
+  type: SET_CATEGORIES,
+  payload: categories,
+});
 
 export { setExerciseAction, setCategoriesAction };

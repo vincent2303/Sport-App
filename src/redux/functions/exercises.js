@@ -4,7 +4,7 @@ import { storeExercises } from '../storageSystem/exercises';
 // we don't await store exercise to have a fast app
 const setExercises = exercises => (dispatch) => {
   storeExercises(exercises);
-  dispatch(setExerciseAction(exercises.slice(0)));
+  dispatch(setExerciseAction(exercises.slice()));
 };
 
 function fake() {}

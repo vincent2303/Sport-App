@@ -1,6 +1,13 @@
-export default {
-  0: 'Arms',
-  1: 'Torso',
-  2: 'Legs',
-  3: 'Back',
-};
+import { addIdToArrayOfObjects } from '../utils/idGenerators';
+import { generateCategoriesObject } from '../utils/exercises';
+
+const defaultCategoriesArry = [
+  { name: 'Arms' },
+  { name: 'Torso' },
+  { name: 'Legs' },
+  { name: 'Back' },
+];
+
+addIdToArrayOfObjects(defaultCategoriesArry);
+
+export default generateCategoriesObject(defaultCategoriesArry);

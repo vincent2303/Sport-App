@@ -55,7 +55,7 @@ function CategoryPicker({
               categoriesIdArray.map(categoryId => (
                 <Picker.Item
                   key={categoryId}
-                  label={categories[categoryId].toUpperCase()}
+                  label={categories[categoryId].name.toUpperCase()}
                   value={categoryId}
                 />
               ))
@@ -67,11 +67,11 @@ function CategoryPicker({
   );
 }
 
-function SelectionValue({ selectedValue }) {
-  if (!selectedValue) {
+function SelectorText({ textValue }) {
+  if (!textValue) {
     return null;
   }
-  return <Text style={commonStyles.AHlargeYellowText}>{selectedValue.toUpperCase()}</Text>;
+  return <Text style={commonStyles.AHlargeYellowText}>{textValue.toUpperCase()}</Text>;
 }
 
 export default class AimHighSelector extends Component {
@@ -96,6 +96,7 @@ export default class AimHighSelector extends Component {
       fieldName, categories, selectedValue, onSelect,
     } = this.props;
     const { visible } = this.state;
+    const textValue = categories[selectedValue] ? categories[selectedValue].name : null;
 
     return (
       <TouchableOpacity
@@ -105,7 +106,7 @@ export default class AimHighSelector extends Component {
         <View style={{ width: '35%' }}>
           <Text style={commonStyles.AHlargeWhiteText}>{fieldName.toUpperCase()}</Text>
         </View>
-        <SelectionValue selectedValue={categories[selectedValue]} />
+        <SelectorText textValue={textValue} />
         <CategoryPicker
           visible={visible}
           categories={categories}
