@@ -25,15 +25,7 @@ function getRepString(repetitionNumber) {
 }
 
 function getRestString(restTime) {
-  if (restTime < 60) {
-    return `${restTime}s`;
-  }
-  const minuteValue = Math.floor(restTime / 60);
-  const secondeValue = restTime % 60;
-  if (secondeValue === 0) {
-    return `${minuteValue}s`;
-  }
-  return `${minuteValue}m ${secondeValue}s`;
+  return `${restTime}s`;
 }
 
 function generateCategoriesObject(categoriesArray) {

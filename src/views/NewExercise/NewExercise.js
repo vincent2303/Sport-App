@@ -3,7 +3,6 @@ import {
   View,
   Keyboard,
   TouchableWithoutFeedback,
-  Dimensions,
 } from 'react-native';
 import HeaderBackButton from '../../components/commons/HeaderBackButton';
 import headerStyle from '../../globals/header';
@@ -18,8 +17,8 @@ import { idGenerator } from '../../utils/idGenerators';
 
 import commonStyles from '../../globals/commonStyles';
 import styles from './styles';
+import { height } from '../../globals/dimensions';
 
-const { height } = Dimensions.get('window');
 const illustrationSize = height * 0.2;
 
 export default class NewExercise extends Component {
@@ -55,7 +54,7 @@ export default class NewExercise extends Component {
       if (!weight) {
         weight = 0;
       }
-      weight += 0.1;
+      weight += 1;
       this.setState({ weight });
     }
 
@@ -64,7 +63,7 @@ export default class NewExercise extends Component {
       if (!weight) {
         weight = 0;
       }
-      weight -= 0.1;
+      weight -= 1;
       this.setState({ weight });
     }
 
@@ -93,7 +92,7 @@ export default class NewExercise extends Component {
       if (!restTime) {
         restTime = 0;
       }
-      restTime += 1;
+      restTime += 10;
       this.setState({ restTime });
     }
 
@@ -103,7 +102,7 @@ export default class NewExercise extends Component {
         restTime = 0;
       }
       if (restTime > 0) {
-        restTime -= 1;
+        restTime -= 10;
         this.setState({ restTime });
       }
     }
@@ -112,7 +111,6 @@ export default class NewExercise extends Component {
       const exerciseToSubmit = this.state;
       exerciseToSubmit.id = idGenerator();
       const { exercises, setExercises } = this.props;
-      console.log('exercisses props:', exercises);
       exercises.push(exerciseToSubmit);
       setExercises(exercises);
     }

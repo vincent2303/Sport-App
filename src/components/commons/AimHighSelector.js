@@ -6,14 +6,11 @@ import {
   Keyboard,
   Modal,
   Picker,
-  Dimensions,
   StyleSheet,
 } from 'react-native';
 import commonStyles from '../../globals/commonStyles';
-
 import colors from '../../globals/colors';
-
-const { width } = Dimensions.get('window');
+import { width } from '../../globals/dimensions';
 
 const styles = StyleSheet.create({
   pickerTextStyle: {

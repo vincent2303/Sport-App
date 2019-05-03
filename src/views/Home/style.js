@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   subTitle: {
-    fontSize: dimensions.fontSize.small,
+    fontSize: dimensions.fontSize.largeText,
     fontWeight: '100',
     color: colors.white,
   },

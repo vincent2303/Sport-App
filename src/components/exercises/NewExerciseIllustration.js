@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  View, Image, Dimensions, StyleSheet,
+  View, Image, StyleSheet,
 } from 'react-native';
 import { customExerciseIcon } from '../../images';
 import commonStyles from '../../globals/commonStyles';
+import { height } from '../../globals/dimensions';
 
-const { height } = Dimensions.get('window');
 const heightIllustrationBanner = height * 0.2;
 const styles = StyleSheet.create({
   container: {

@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
 });
 
 function getWeightString(weightValue) {
-  if (Math.abs(weightValue) < 0.01) return 'body';
-  return weightValue.toFixed(1);
+  if (weightValue === 0) return 'body';
+  return weightValue;
 }
 
 function WeightLine({ value }) {
