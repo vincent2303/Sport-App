@@ -26,7 +26,7 @@ export default class Exercises extends Component {
   onChooseExercise = (exercise) => {
     const { navigation, selectExercise } = this.props;
     selectExercise(exercise);
-    navigation.navigate('EditExercise');
+    navigation.navigate('EditExercise', { title: exercise.name });
   }
 
   render() {

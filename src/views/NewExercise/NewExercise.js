@@ -14,6 +14,17 @@ import AimHighSelector from '../../components/commons/inputs/AimHighSelector';
 import AimHighNumericField from '../../components/commons/inputs/AimHighNumericField';
 import RectangleButton from '../../components/commons/buttons/RectangleButton';
 
+import {
+  increaseWeight,
+  lowerWeight,
+  increaseRepetitionNumber,
+  lowerRepetitionNumber,
+  increaseRestTime,
+  lowerRestTime,
+  onChangeName,
+  onSelectFocus,
+} from '../../sharedClassMethods/exercises';
+
 import { idGenerator } from '../../utils/idGenerators';
 import { checkExerciseValidity } from '../../utils/exercises';
 
@@ -38,80 +49,22 @@ export default class NewExercise extends Component {
         repetitionNumber: null,
         restTime: null,
       };
-    }
-
-    onChangeName = ({ text }) => {
-      this.setState({ name: text });
-    }
-
-    onSelectFocus = (categoryId) => {
-      this.setState({ categoryId });
-    }
-
-    increaseWeight = () => {
-      let { weight } = this.state;
-      if (!weight) {
-        weight = 0;
-      }
-      weight += 1;
-      this.setState({ weight });
-    }
-
-    lowerWeight = () => {
-      let { weight } = this.state;
-      if (!weight) {
-        weight = 0;
-      }
-      weight -= 1;
-      this.setState({ weight });
-    }
-
-    increaseRepetitionNumber = () => {
-      let { repetitionNumber } = this.state;
-      if (!repetitionNumber) {
-        repetitionNumber = 0;
-      }
-      repetitionNumber += 1;
-      this.setState({ repetitionNumber });
-    }
-
-    lowerRepetitionNumber = () => {
-      let { repetitionNumber } = this.state;
-      if (!repetitionNumber) {
-        repetitionNumber = 0;
-      }
-      if (repetitionNumber > 0) {
-        repetitionNumber -= 1;
-        this.setState({ repetitionNumber });
-      }
-    }
-
-    increaseRestTime = () => {
-      let { restTime } = this.state;
-      if (!restTime) {
-        restTime = 0;
-      }
-      restTime += 10;
-      this.setState({ restTime });
-    }
-
-    lowerRestTime = () => {
-      let { restTime } = this.state;
-      if (!restTime) {
-        restTime = 0;
-      }
-      if (restTime > 0) {
-        restTime -= 10;
-        this.setState({ restTime });
-      }
+      this.increaseWeight = increaseWeight.bind(this);
+      this.lowerWeight = lowerWeight.bind(this);
+      this.increaseRepetitionNumber = increaseRepetitionNumber.bind(this);
+      this.lowerRepetitionNumber = lowerRepetitionNumber.bind(this);
+      this.increaseRestTime = increaseRestTime.bind(this);
+      this.lowerRestTime = lowerRestTime.bind(this);
+      this.onChangeName = onChangeName.bind(this);
+      this.onSelectFocus = onSelectFocus.bind(this);
     }
 
     submitExercise = () => {
       const exerciseToSubmit = this.state;
       const { navigation } = this.props;
+      exerciseToSubmit.id = idGenerator();
       const { isValid, missingString } = checkExerciseValidity(exerciseToSubmit);
       if (isValid) {
-        exerciseToSubmit.id = idGenerator();
         const { exercises, setExercises } = this.props;
         exercises.push(exerciseToSubmit);
         setExercises(exercises);

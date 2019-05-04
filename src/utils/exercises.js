@@ -1,3 +1,15 @@
+
+// an exercise must constains all attribute defined in exercisesAttributMap
+const exercisesAttributMap = new Map([
+  ['id'],
+  ['categoryId'],
+  ['name'],
+  ['weight'],
+  ['repetitionNumber'],
+  ['restTime'],
+]);
+
+
 // input exercises array; output map of exercises by category
 function getExercisePerCategoryIdMap({ exercises, categories }) {
   const categoryIdArray = Object.keys(categories);
@@ -29,6 +41,7 @@ function getRestString(restTime) {
 }
 
 function checkExerciseValidity(exercise) {
+  const exercisesAttributeArray = Object.keys(exercise);
   let missingString = '';
   const {
     name, weight, repetitionNumber, restTime, categoryId,
@@ -38,7 +51,19 @@ function checkExerciseValidity(exercise) {
   if (!repetitionNumber) { missingString += 'Repetition is missing\n'; }
   if (!restTime) { missingString += 'Rest time is missing\n'; }
   if (!categoryId) { missingString += 'Category is missing\n'; }
-  const isValid = !missingString.length;
+  let exerciseObjectValid = exercisesAttributMap.size === exercisesAttributeArray.length;
+  console.log(exerciseObjectValid);
+  console.log(exercisesAttributeArray);
+  console.log('|||||||||––––––|||||');
+  console.log(exerciseObjectValid);
+  exercisesAttributeArray.forEach((attributeName) => {
+    if (!exercisesAttributMap.has(attributeName)) {
+      exerciseObjectValid = false;
+    }
+  });
+  console.log(exerciseObjectValid);
+  if (!exerciseObjectValid) { missingString += 'ERROR: Exercise object invalid\n'; }
+  const isValid = !missingString.length && exerciseObjectValid;
   return { isValid, missingString };
 }
 

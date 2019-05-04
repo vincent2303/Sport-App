@@ -14,7 +14,7 @@ import AimHighDynamicValue from './AimHighDynamicValue';
 
 const styles = StyleSheet.create({
   container: { paddingVertical: 0, marginBottom: dimension.margin },
-  fieldNameContainer: { width: '35%', paddingVertical: dimension.margin * 2 },
+  fieldNameContainer: { width: '35%', paddingVertical: dimension.margin * 3 / 2 },
   lineTextAndButtonContainer: {
     flex: 1,
     flexDirection: 'row',

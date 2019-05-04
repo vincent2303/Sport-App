@@ -37,7 +37,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     borderLeftWidth: 3,
     borderLeftColor: colors.electricYellow,
-    paddingVertical: dimensions.margin * 2,
+    paddingVertical: dimensions.margin * 3 / 2,
     paddingRight: dimensions.margin,
     paddingLeft: dimensions.margin - 3,
   },
