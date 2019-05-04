@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { ScrollView, View } from 'react-native';
 import { getExercisePerCategoryIdMap } from '../../utils/exercises';
 
-import HeaderBackButton from '../../components/commons/HeaderBackButton';
+import HeaderBackButton from '../../components/commons/buttons/HeaderBackButton';
 import ExerciseCategory from '../../components/exercises/ExerciseCategory';
-import CircleButton from '../../components/commons/CircleButton';
+import CircleButton from '../../components/commons/buttons/CircleButton';
 
 import headerStyle from '../../globals/header';
 import commonStyles from '../../globals/commonStyles';
@@ -23,6 +23,12 @@ export default class Exercises extends Component {
     navigation.navigate('NewExercise');
   }
 
+  onChooseExercise = (exercise) => {
+    const { navigation, selectExercise } = this.props;
+    selectExercise(exercise);
+    navigation.navigate('EditExercise');
+  }
+
   render() {
     const { exercises, categories } = this.props;
     const exercisePerCategoryIdMap = getExercisePerCategoryIdMap({ exercises, categories });
@@ -35,6 +41,7 @@ export default class Exercises extends Component {
                 key={categoryId}
                 categoryName={categories[categoryId].name}
                 exerciseArray={exercisePerCategoryIdMap[categoryId]}
+                onChooseExercise={this.onChooseExercise}
               />
             ))}
           </View>

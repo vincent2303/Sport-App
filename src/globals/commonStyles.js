@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import colors from './colors';
-import dimensions from './dimensions';
+import dimensions, { height } from './dimensions';
 
 const regularText = {
   fontSize: dimensions.fontSize.regularText,
@@ -14,6 +14,9 @@ const largeText = {
   color: colors.white,
 };
 
+// Exercise illustration
+const illustrationSize = height * 0.2;
+
 export default StyleSheet.create({
 
   // CONTAINER
@@ -24,7 +27,6 @@ export default StyleSheet.create({
   AHsecondaryContainer: {
     backgroundColor: colors.secondaryBlue,
     padding: dimensions.margin,
-    marginTop: dimensions.margin,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -38,7 +40,6 @@ export default StyleSheet.create({
     paddingVertical: dimensions.margin * 2,
     paddingRight: dimensions.margin,
     paddingLeft: dimensions.margin - 3,
-    marginTop: dimensions.margin,
   },
 
   // TEXT
@@ -78,3 +79,5 @@ export default StyleSheet.create({
     height: 70,
   },
 });
+
+export { illustrationSize };

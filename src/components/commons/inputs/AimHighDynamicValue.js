@@ -5,7 +5,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import commonStyles from '../../globals/commonStyles';
+import commonStyles from '../../../globals/commonStyles';
 
 const styles = StyleSheet.create({
   weightLineContainer: {

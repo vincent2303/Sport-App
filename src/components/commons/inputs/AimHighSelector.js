@@ -8,11 +8,12 @@ import {
   Picker,
   StyleSheet,
 } from 'react-native';
-import commonStyles from '../../globals/commonStyles';
-import colors from '../../globals/colors';
-import { width } from '../../globals/dimensions';
+import commonStyles from '../../../globals/commonStyles';
+import colors from '../../../globals/colors';
+import dimensions, { width } from '../../../globals/dimensions';
 
 const styles = StyleSheet.create({
+  container: { marginBottom: dimensions.margin },
   pickerTextStyle: {
     color: colors.electricYellow,
   },
@@ -97,7 +98,7 @@ export default class AimHighSelector extends Component {
 
     return (
       <TouchableOpacity
-        style={commonStyles.AHsecondaryContainerWithBorder}
+        style={[commonStyles.AHsecondaryContainerWithBorder, styles.container]}
         onPress={this.onPressField}
       >
         <View style={{ width: '35%' }}>

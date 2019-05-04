@@ -1,9 +1,14 @@
 import { connect } from 'react-redux';
 import Exercises from './Exercises';
+import { selectExercise } from '../../redux/functions/exercises';
 
 const mapStateToProps = state => ({
   exercises: state.exerciseReducer.exercises,
   categories: state.exerciseReducer.categories,
 });
 
-export default connect(mapStateToProps, null)(Exercises);
+const mapDispatchToProps = {
+  selectExercise,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Exercises);

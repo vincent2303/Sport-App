@@ -3,23 +3,22 @@ import {
   View,
   Keyboard,
   TouchableWithoutFeedback,
+  Alert,
 } from 'react-native';
-import HeaderBackButton from '../../components/commons/HeaderBackButton';
+import HeaderBackButton from '../../components/commons/buttons/HeaderBackButton';
 import headerStyle from '../../globals/header';
 
 import NewExerciseIllustration from '../../components/exercises/NewExerciseIllustration';
-import AimHighTextField from '../../components/commons/AimHighTextField';
-import AimHighSelector from '../../components/commons/AimHighSelector';
-import AimHighNumericField from '../../components/commons/AimHighNumericField';
-import RectangleButton from '../../components/commons/RectangleButton';
+import AimHighTextField from '../../components/commons/inputs/AimHighTextField';
+import AimHighSelector from '../../components/commons/inputs/AimHighSelector';
+import AimHighNumericField from '../../components/commons/inputs/AimHighNumericField';
+import RectangleButton from '../../components/commons/buttons/RectangleButton';
 
 import { idGenerator } from '../../utils/idGenerators';
+import { checkExerciseValidity } from '../../utils/exercises';
 
-import commonStyles from '../../globals/commonStyles';
+import commonStyles, { illustrationSize } from '../../globals/commonStyles';
 import styles from './styles';
-import { height } from '../../globals/dimensions';
-
-const illustrationSize = height * 0.2;
 
 export default class NewExercise extends Component {
     static navigationOptions = ({ navigation }) => ({
@@ -109,10 +108,20 @@ export default class NewExercise extends Component {
 
     submitExercise = () => {
       const exerciseToSubmit = this.state;
-      exerciseToSubmit.id = idGenerator();
-      const { exercises, setExercises } = this.props;
-      exercises.push(exerciseToSubmit);
-      setExercises(exercises);
+      const { navigation } = this.props;
+      const { isValid, missingString } = checkExerciseValidity(exerciseToSubmit);
+      if (isValid) {
+        exerciseToSubmit.id = idGenerator();
+        const { exercises, setExercises } = this.props;
+        exercises.push(exerciseToSubmit);
+        setExercises(exercises);
+        navigation.navigate('Exercises');
+      } else {
+        Alert.alert(
+          'Requiered fields',
+          missingString,
+        );
+      }
     }
 
     render() {

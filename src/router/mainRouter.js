@@ -7,16 +7,16 @@ import SessionReport from '../views/SessionReport';
 import DrawerContent from '../views/DrawerContent';
 import SplashScreen from '../views/SplashScreen';
 import NewExercise from '../views/NewExercise';
-import TestComponent from '../views/TestComponent';
+import EditExercise from '../views/EditExercise';
 
 const secondNav = createStackNavigator({
   Exercises,
   NewExercise,
+  EditExercise,
 });
 
 const DrawerNavigator = createDrawerNavigator({
   SplashScreen,
-  TestComponent,
   Home,
   Exercises: secondNav,
   SessionCycle,

@@ -4,16 +4,16 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
-import commonStyles from '../../globals/commonStyles';
-import dimension from '../../globals/dimensions';
+import commonStyles from '../../../globals/commonStyles';
+import dimension from '../../../globals/dimensions';
 
-import PlusButton from './PlusButton';
-import MinusButton from './MinusButton';
+import PlusButton from '../buttons/PlusButton';
+import MinusButton from '../buttons/MinusButton';
 
 import AimHighDynamicValue from './AimHighDynamicValue';
 
 const styles = StyleSheet.create({
-  container: { paddingVertical: 0 },
+  container: { paddingVertical: 0, marginBottom: dimension.margin },
   fieldNameContainer: { width: '35%', paddingVertical: dimension.margin * 2 },
   lineTextAndButtonContainer: {
     flex: 1,

@@ -5,14 +5,14 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native';
-import colors from '../../globals/colors';
-import { whitePlus } from '../../images';
+import colors from '../../../globals/colors';
+import { whiteMinus } from '../../../images';
 
 const styles = StyleSheet.create({
   container: {
     width: 45,
     height: 45,
-    backgroundColor: colors.green,
+    backgroundColor: colors.red,
   },
   IconContainer: {
     flex: 1, alignItems: 'center', justifyContent: 'center',
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class PlusButton extends Component {
+export default class MinusButton extends Component {
   constructor(props) {
     super(props);
     this.timer = null;
@@ -51,7 +51,7 @@ export default class PlusButton extends Component {
       <TouchableOpacity style={styles.container} {...touchableOpacityPressProps}>
         <View style={styles.IconContainer}>
           <Image
-            source={whitePlus}
+            source={whiteMinus}
             style={styles.iconStyle}
           />
         </View>

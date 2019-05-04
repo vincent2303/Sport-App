@@ -3,9 +3,9 @@ import {
   View, TouchableOpacity, Text, StyleSheet,
 } from 'react-native';
 
-import commoStyle from '../../globals/commonStyles';
-import dimensions from '../../globals/dimensions';
-import colors from '../../globals/colors';
+import commoStyle from '../../../globals/commonStyles';
+import dimensions from '../../../globals/dimensions';
+import colors from '../../../globals/colors';
 
 const styles = StyleSheet.create({
   container: {

@@ -11,6 +11,9 @@ import { customExerciseIcon } from '../../images';
 import commonStyles from '../../globals/commonStyles';
 
 const styles = StyleSheet.create({
+  constainer: {
+    marginTop: dimensions.margin / 2,
+  },
   exerciseTextLine: {
     flex: 1,
     flexDirection: 'row',
@@ -33,13 +36,13 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function ExerciseLine({ exercise }) {
+export default function ExerciseLine({ exercise, onChooseExercise }) {
   const { weight, repetitionNumber, restTime } = exercise;
   const weightString = getWeightString(weight);
   const repString = getRepString(repetitionNumber);
   const restString = getRestString(restTime);
   return (
-    <TouchableOpacity>
+    <TouchableOpacity style={styles.constainer} onPress={() => { onChooseExercise(exercise); }}>
       <View style={commonStyles.AHsecondaryContainer}>
         <Image source={customExerciseIcon} style={commonStyles.smallIcon} />
         <View style={styles.exerciseTextLine}>

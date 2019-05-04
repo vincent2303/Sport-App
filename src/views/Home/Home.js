@@ -5,7 +5,7 @@ import {
 import styles from './style';
 
 import DrawerMenu from '../../components/drawer/DrawerMenu';
-import CircleButton from '../../components/commons/CircleButton';
+import CircleButton from '../../components/commons/buttons/CircleButton';
 import Logo from '../../components/commons/Logo';
 import commonStyles from '../../globals/commonStyles';
 

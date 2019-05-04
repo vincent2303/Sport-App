@@ -17,14 +17,14 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function ExerciseCategory({ categoryName, exerciseArray }) {
+export default function ExerciseCategory({ categoryName, exerciseArray, onChooseExercise }) {
   return (
     <View style={styles.container}>
       <Text style={[commonStyles.AHlargeWhiteText, styles.title]}>
         {categoryName.toUpperCase()}
       </Text>
       {exerciseArray.map(exercise => (
-        <ExerciseLine key={exercise.id} exercise={exercise} />
+        <ExerciseLine key={exercise.id} exercise={exercise} onChooseExercise={onChooseExercise} />
       ))}
     </View>
   );

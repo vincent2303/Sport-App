@@ -1,14 +1,19 @@
 import React from 'react';
 import {
-  View, TouchableOpacity, Text, TextInput,
+  View, TouchableOpacity, Text, TextInput, StyleSheet,
 } from 'react-native';
-import commonStyles from '../../globals/commonStyles';
+import commonStyles from '../../../globals/commonStyles';
+import dimensions from '../../../globals/dimensions';
+
+const styles = StyleSheet.create({
+  container: { marginBottom: dimensions.margin },
+});
 
 export default function AimHighTextField({ fieldName, onChangeText, value }) {
   let componentInput;
   return (
     <TouchableOpacity
-      style={commonStyles.AHsecondaryContainerWithBorder}
+      style={[commonStyles.AHsecondaryContainerWithBorder, styles.container]}
       onPress={() => { componentInput.focus(); }}
     >
       <View style={{ width: '35%' }}>

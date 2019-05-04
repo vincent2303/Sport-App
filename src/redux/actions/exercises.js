@@ -1,4 +1,4 @@
-import { PUSH_EXERCISE, SET_CATEGORIES } from './types';
+import { PUSH_EXERCISE, SET_CATEGORIES, SELECT_EXERCISE } from './types';
 
 const setExerciseAction = exercises => ({
   type: PUSH_EXERCISE,
@@ -10,4 +10,9 @@ const setCategoriesAction = categories => ({
   payload: categories,
 });
 
-export { setExerciseAction, setCategoriesAction };
+const selectExerciseAction = exercise => ({
+  type: SELECT_EXERCISE,
+  payload: exercise,
+});
+
+export { setExerciseAction, setCategoriesAction, selectExerciseAction };

@@ -28,6 +28,20 @@ function getRestString(restTime) {
   return `${restTime}s`;
 }
 
+function checkExerciseValidity(exercise) {
+  let missingString = '';
+  const {
+    name, weight, repetitionNumber, restTime, categoryId,
+  } = exercise;
+  if (!name || !name.length) { missingString += 'Name is missing\n'; }
+  if (!weight) { missingString += 'Weight is missing\n'; }
+  if (!repetitionNumber) { missingString += 'Repetition is missing\n'; }
+  if (!restTime) { missingString += 'Rest time is missing\n'; }
+  if (!categoryId) { missingString += 'Category is missing\n'; }
+  const isValid = !missingString.length;
+  return { isValid, missingString };
+}
+
 function generateCategoriesObject(categoriesArray) {
   const categories = {};
   categoriesArray.forEach((category) => {
@@ -63,4 +77,5 @@ export {
   getRestString,
   generateCategoriesObject,
   assignCategoryIdToExerciseArray,
+  checkExerciseValidity,
 };
