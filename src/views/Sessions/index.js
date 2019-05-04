@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import SplashScreen from './SplashScreen';
-
+import Sessions from './Sessions';
 
 const mapStateToProps = state => ({
   sessions: state.sessionsReducer.sessions,
@@ -8,4 +7,5 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = null;
 
-export default connect(mapStateToProps, mapDispatchToProps)(SplashScreen);
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sessions);
