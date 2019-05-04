@@ -52,16 +52,11 @@ function checkExerciseValidity(exercise) {
   if (!restTime) { missingString += 'Rest time is missing\n'; }
   if (!categoryId) { missingString += 'Category is missing\n'; }
   let exerciseObjectValid = exercisesAttributMap.size === exercisesAttributeArray.length;
-  console.log(exerciseObjectValid);
-  console.log(exercisesAttributeArray);
-  console.log('|||||||||––––––|||||');
-  console.log(exerciseObjectValid);
   exercisesAttributeArray.forEach((attributeName) => {
     if (!exercisesAttributMap.has(attributeName)) {
       exerciseObjectValid = false;
     }
   });
-  console.log(exerciseObjectValid);
   if (!exerciseObjectValid) { missingString += 'ERROR: Exercise object invalid\n'; }
   const isValid = !missingString.length && exerciseObjectValid;
   return { isValid, missingString };
