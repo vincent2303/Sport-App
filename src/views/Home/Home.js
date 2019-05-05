@@ -10,6 +10,10 @@ import Logo from '../../components/commons/Logo';
 import commonStyles from '../../globals/commonStyles';
 
 export default class Home extends Component {
+  static navigationOptions = () => ({
+    header: null,
+  });
+
   render() {
     const { navigation } = this.props;
     return (

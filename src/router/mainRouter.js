@@ -10,25 +10,19 @@ import NewExercise from '../views/NewExercise';
 import EditExercise from '../views/EditExercise';
 import NewSession from '../views/NewSession';
 
-const exerciseNavigation = createStackNavigator({
+const stackNavigator = createStackNavigator({
+  Home,
   Exercises,
   NewExercise,
   EditExercise,
   Sessions,
-});
-
-const sessionsNavigation = createStackNavigator({
   NewSession,
-  Sessions,
+  SessionReport,
 });
 
 const DrawerNavigator = createDrawerNavigator({
   SplashScreen,
-  Home,
-  Exercises: exerciseNavigation,
-  Sessions: sessionsNavigation,
-  NewSession: sessionsNavigation,
-  SessionReport,
+  Home: stackNavigator,
 }, {
   contentComponent: DrawerContent,
 });
