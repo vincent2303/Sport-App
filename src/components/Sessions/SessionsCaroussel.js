@@ -21,6 +21,9 @@ export default class SessionsCaroussel extends Component {
         <ScrollView
           horizontal
           pagingEnabled
+          overScrollMode="never"
+          showsHorizontalScrollIndicator={false}
+          bounces={false}
         >
           <SessionSlide />
           <SessionSlide />

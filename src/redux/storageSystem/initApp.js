@@ -7,6 +7,8 @@ import {
   setAndStoreDefaultCategories,
 } from './exercises';
 
+import { loadSessions } from './sessions';
+
 const firstConnectionKey = 'AimHighIsFirstConnection';
 
 // load the data and set the result in redux
@@ -14,6 +16,7 @@ async function loadCoreData() {
   await Promise.all([
     loadExercises(),
     loadCategories(),
+    loadSessions(),
   ]);
 }
 

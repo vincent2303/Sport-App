@@ -42,7 +42,6 @@ function getRestString(restTime) {
 }
 
 function checkExerciseValidity(exercise) {
-  const exercisesAttributeArray = Object.keys(exercise);
   let missingString = '';
   const {
     name, weight, repetitionNumber, executionNumber, restTime, categoryId,
@@ -53,6 +52,7 @@ function checkExerciseValidity(exercise) {
   if (!repetitionNumber) { missingString += 'Repetition is missing\n'; }
   if (!restTime) { missingString += 'Rest time is missing\n'; }
   if (!categoryId) { missingString += 'Category is missing\n'; }
+  const exercisesAttributeArray = Object.keys(exercise);
   let exerciseObjectValid = exercisesAttributMap.size === exercisesAttributeArray.length;
   exercisesAttributeArray.forEach((attributeName) => {
     if (!exercisesAttributMap.has(attributeName)) {

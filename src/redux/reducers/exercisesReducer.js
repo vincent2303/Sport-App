@@ -6,7 +6,7 @@ const exerciseInitialState = {
   selectedExercise: null,
 };
 
-function exerciseReducer(state = exerciseInitialState, { type, payload }) {
+function exercisesReducer(state = exerciseInitialState, { type, payload }) {
   switch (type) {
     case PUSH_EXERCISE: {
       return { ...state, exercises: payload };
@@ -21,4 +21,4 @@ function exerciseReducer(state = exerciseInitialState, { type, payload }) {
       return { ...state };
   }
 }
-export default exerciseReducer;
+export default exercisesReducer;

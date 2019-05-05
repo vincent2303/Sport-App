@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, ScrollView, StyleSheet } from 'react-native';
+import {
+  View, ScrollView, StyleSheet, Alert,
+} from 'react-native';
 
 import HeaderBackButton from '../../components/commons/buttons/HeaderBackButton';
 import ExerciseCategory from '../../components/exercises/ExerciseCategory';
@@ -10,6 +12,9 @@ import dimensions from '../../globals/dimensions';
 import { getExercisePerCategoryIdMap } from '../../utils/exercises';
 import AimHighNumericField from '../../components/commons/inputs/AimHighNumericField';
 import RectangleButton from '../../components/commons/buttons/RectangleButton';
+
+import { checkSessionValidity } from '../../utils/sessions';
+import { idGenerator } from '../../utils/idGenerators';
 
 const styles = StyleSheet.create({
   container: {
@@ -30,7 +35,7 @@ export default class NewSession extends Component {
     super(props);
     this.state = {
       name: null,
-      exercisesIdMap: new Map(),
+      exerciseIdMap: new Map(),
       sessionTime: null,
     };
   }
@@ -60,18 +65,31 @@ export default class NewSession extends Component {
   }
 
   onChooseExercise = ({ id }) => {
-    const { exercisesIdMap } = this.state;
-    if (exercisesIdMap.has(id)) {
-      exercisesIdMap.delete(id);
+    const { exerciseIdMap } = this.state;
+    if (exerciseIdMap.has(id)) {
+      exerciseIdMap.delete(id);
     } else {
-      exercisesIdMap.set(id);
+      exerciseIdMap.set(id);
     }
-    this.setState({ exercisesIdMap });
+    this.setState({ exerciseIdMap });
+  }
+
+  onSaveSession = () => {
+    const SessionToSave = this.state;
+    SessionToSave.id = idGenerator();
+    const { setSessions, sessions } = this.props;
+    const { isValid, missingString } = checkSessionValidity(SessionToSave);
+    if (isValid) {
+      sessions.push(this.state);
+      setSessions(sessions);
+    } else {
+      Alert.alert('Requiered fields missing', missingString);
+    }
   }
 
   render() {
     const { exercises, categories } = this.props;
-    const { exercisesIdMap, name, sessionTime } = this.state;
+    const { exerciseIdMap, name, sessionTime } = this.state;
     const exercisePerCategoryIdMap = getExercisePerCategoryIdMap({ exercises, categories });
 
     return (
@@ -98,7 +116,7 @@ export default class NewSession extends Component {
                 exerciseArray={exercisePerCategoryIdMap[categoryId]}
                 onChooseExercise={this.onChooseExercise}
                 selectionMode
-                exercisesIdMap={exercisesIdMap}
+                exerciseIdMap={exerciseIdMap}
               />
             ))}
           </View>
@@ -106,7 +124,7 @@ export default class NewSession extends Component {
         <RectangleButton
           title="create"
           type="add"
-          onPress={null}
+          onPress={this.onSaveSession}
         />
       </View>
     );

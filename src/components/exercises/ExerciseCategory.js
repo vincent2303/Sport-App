@@ -22,7 +22,7 @@ export default function ExerciseCategory({
   exerciseArray,
   onChooseExercise,
   selectionMode,
-  exercisesIdMap,
+  exerciseIdMap,
 }) {
   return (
     <View style={styles.container}>
@@ -35,7 +35,7 @@ export default function ExerciseCategory({
           exercise={exercise}
           onChooseExercise={onChooseExercise}
           selectionMode={selectionMode}
-          selected={exercisesIdMap && exercisesIdMap.has(exercise.id)}
+          selected={exerciseIdMap && exerciseIdMap.has(exercise.id)}
         />
       ))}
     </View>

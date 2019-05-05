@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import exerciseReducer from './reducers/exerciseReducer';
+import exercisesReducer from './reducers/exercisesReducer';
 import sessionsReducer from './reducers/sessionsReducer';
 
 const appReducer = combineReducers({
-  exerciseReducer,
+  exercisesReducer,
   sessionsReducer,
 });
 

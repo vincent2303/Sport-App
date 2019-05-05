@@ -3,8 +3,8 @@ import EditExercise from './EditExercise';
 import { setExercises } from '../../redux/functions/exercises';
 
 const mapStateToProps = state => ({
-  exercises: state.exerciseReducer.exercises,
-  selectedExercise: state.exerciseReducer.selectedExercise,
+  exercises: state.exercisesReducer.exercises,
+  selectedExercise: state.exercisesReducer.selectedExercise,
 });
 
 const mapDispatchToProps = {
