@@ -5,6 +5,7 @@ const exercisesAttributMap = new Map([
   ['categoryId'],
   ['name'],
   ['weight'],
+  ['executionNumber'],
   ['repetitionNumber'],
   ['restTime'],
 ]);
@@ -32,8 +33,8 @@ function getWeightString(weight) {
   return `${weight} Kg`;
 }
 
-function getRepString(repetitionNumber) {
-  return `${repetitionNumber} Rep`;
+function getRepString({ repetitionNumber, executionNumber }) {
+  return `${executionNumber}x${repetitionNumber} Rep`;
 }
 
 function getRestString(restTime) {
@@ -44,10 +45,11 @@ function checkExerciseValidity(exercise) {
   const exercisesAttributeArray = Object.keys(exercise);
   let missingString = '';
   const {
-    name, weight, repetitionNumber, restTime, categoryId,
+    name, weight, repetitionNumber, executionNumber, restTime, categoryId,
   } = exercise;
   if (!name || !name.length) { missingString += 'Name is missing\n'; }
-  if (!weight) { missingString += 'Weight is missing\n'; }
+  if (weight == null) { missingString += 'Weight is missing\n'; }
+  if (!executionNumber) { missingString += 'Execution per repetion missing\n'; }
   if (!repetitionNumber) { missingString += 'Repetition is missing\n'; }
   if (!restTime) { missingString += 'Rest time is missing\n'; }
   if (!categoryId) { missingString += 'Category is missing\n'; }

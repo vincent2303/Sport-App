@@ -84,7 +84,7 @@ export default class NewSession extends Component {
           />
           <AimHighNumericField
             fieldName="time"
-            type="restTime"
+            type="sessionTime"
             value={sessionTime}
             increase={this.increaseSessionTime}
             lower={this.lowerSessionTime}

@@ -6,7 +6,7 @@ export default class SplashScreen extends Component {
   async componentWillMount() {
     const { navigation } = this.props;
     await initApp();
-    navigation.navigate('NewSession');
+    navigation.navigate('Home');
   }
 
   render() {

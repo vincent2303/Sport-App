@@ -17,6 +17,8 @@ import RectangleButton from '../../components/commons/buttons/RectangleButton';
 import {
   increaseWeight,
   lowerWeight,
+  increaseExecutionNumber,
+  lowerExecutionNumber,
   increaseRepetitionNumber,
   lowerRepetitionNumber,
   increaseRestTime,
@@ -46,11 +48,14 @@ export default class NewExercise extends Component {
         name: null,
         categoryId: null,
         weight: null,
+        executionNumber: null,
         repetitionNumber: null,
         restTime: null,
       };
       this.increaseWeight = increaseWeight.bind(this);
       this.lowerWeight = lowerWeight.bind(this);
+      this.increaseExecutionNumber = increaseExecutionNumber.bind(this);
+      this.lowerExecutionNumber = lowerExecutionNumber.bind(this);
       this.increaseRepetitionNumber = increaseRepetitionNumber.bind(this);
       this.lowerRepetitionNumber = lowerRepetitionNumber.bind(this);
       this.increaseRestTime = increaseRestTime.bind(this);
@@ -80,7 +85,7 @@ export default class NewExercise extends Component {
     render() {
       const { categories } = this.props;
       const {
-        name, categoryId, weight, repetitionNumber, restTime,
+        name, categoryId, weight, executionNumber, repetitionNumber, restTime,
       } = this.state;
       return (
         <View style={commonStyles.AHprimaryContainer}>
@@ -105,6 +110,13 @@ export default class NewExercise extends Component {
                 increase={this.increaseWeight}
                 lower={this.lowerWeight}
                 holdMode
+              />
+              <AimHighNumericField
+                fieldName="exec"
+                type="executionNumber"
+                increase={this.increaseExecutionNumber}
+                lower={this.lowerExecutionNumber}
+                value={executionNumber}
               />
               <AimHighNumericField
                 fieldName="rep"

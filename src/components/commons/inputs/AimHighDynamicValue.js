@@ -37,9 +37,24 @@ function WeightLine({ value }) {
       </View>
       {weightString !== 'body' && (
       <View style={styles.weightUnitContainer}>
-        <Text style={commonStyles.AHlargeWhiteText}>KG</Text>
+        <Text style={commonStyles.AHlargeWhiteText}>Kg</Text>
       </View>
       )}
+    </View>
+  );
+}
+
+function ExecutionLine({ value }) {
+  return (
+    <View style={styles.weightLineContainer}>
+      <View style={styles.weightValueContainer}>
+        <Text style={commonStyles.AHlargeWhiteText}>
+          {value}
+        </Text>
+      </View>
+      <View style={styles.weightUnitContainer}>
+        <Text style={commonStyles.AHlargeWhiteText}>ex</Text>
+      </View>
     </View>
   );
 }
@@ -74,6 +89,21 @@ function RestLine({ value }) {
   );
 }
 
+function SessionTimeLine({ value }) {
+  return (
+    <View style={styles.weightLineContainer}>
+      <View style={styles.weightValueContainer}>
+        <Text style={commonStyles.AHlargeWhiteText}>
+          {value}
+        </Text>
+      </View>
+      <View style={styles.weightUnitContainer}>
+        <Text style={commonStyles.AHlargeWhiteText}>min</Text>
+      </View>
+    </View>
+  );
+}
+
 export default function AimHighDynamicValue({ value, type }) {
   if (value === null) {
     // return a view so that justifyContent space between places the buttons group on the right
@@ -81,17 +111,15 @@ export default function AimHighDynamicValue({ value, type }) {
   }
   switch (type) {
     case 'weight':
-      return (
-        <WeightLine value={value} />
-      );
+      return (<WeightLine value={value} />);
     case 'repetitionNumber':
-      return (
-        <RepLine value={value} />
-      );
+      return (<RepLine value={value} />);
     case 'restTime':
-      return (
-        <RestLine value={value} />
-      );
+      return (<RestLine value={value} />);
+    case 'sessionTime':
+      return (<SessionTimeLine value={value} />);
+    case 'executionNumber':
+      return (<ExecutionLine value={value} />);
     default:
       return (
         <Text style={commonStyles.AHlargeWhiteText}>

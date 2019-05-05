@@ -15,6 +15,8 @@ import headerStyle from '../../globals/header';
 import {
   increaseWeight,
   lowerWeight,
+  increaseExecutionNumber,
+  lowerExecutionNumber,
   increaseRepetitionNumber,
   lowerRepetitionNumber,
   increaseRestTime,
@@ -37,6 +39,8 @@ export default class EditExercise extends Component {
       this.state = { ...editableExercise };
       this.increaseWeight = increaseWeight.bind(this);
       this.lowerWeight = lowerWeight.bind(this);
+      this.increaseExecutionNumber = increaseExecutionNumber.bind(this);
+      this.lowerExecutionNumber = lowerExecutionNumber.bind(this);
       this.increaseRepetitionNumber = increaseRepetitionNumber.bind(this);
       this.lowerRepetitionNumber = lowerRepetitionNumber.bind(this);
       this.increaseRestTime = increaseRestTime.bind(this);
@@ -61,7 +65,9 @@ export default class EditExercise extends Component {
     }
 
     render() {
-      const { weight, restTime, repetitionNumber } = this.state;
+      const {
+        weight, restTime, repetitionNumber, executionNumber,
+      } = this.state;
       return (
         <View style={commonStyles.AHprimaryContainer}>
           <NewExerciseIllustration illustrationSize={illustrationSize} />
@@ -72,6 +78,13 @@ export default class EditExercise extends Component {
             increase={this.increaseWeight}
             lower={this.lowerWeight}
             holdMode
+          />
+          <AimHighNumericField
+            fieldName="exec"
+            type="executionNumber"
+            increase={this.increaseExecutionNumber}
+            lower={this.lowerExecutionNumber}
+            value={executionNumber}
           />
           <AimHighNumericField
             fieldName="rep"

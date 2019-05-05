@@ -5,7 +5,7 @@ import { width, height } from '../../globals/dimensions';
 export default StyleSheet.create({
   graphiqueContainer: {
     width,
-    height: height * 0.3,
+    height: height * 0.2,
     backgroundColor: colors.secondaryBlue,
   },
 });

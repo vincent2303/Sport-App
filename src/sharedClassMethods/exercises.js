@@ -16,6 +16,23 @@ function lowerWeight() {
   this.setState({ weight });
 }
 
+function increaseExecutionNumber() {
+  let { executionNumber } = this.state;
+  if (!executionNumber) {
+    executionNumber = 0;
+  }
+  executionNumber += 1;
+  this.setState({ executionNumber });
+}
+function lowerExecutionNumber() {
+  let { executionNumber } = this.state;
+  if (!executionNumber) {
+    executionNumber = 0;
+  }
+  executionNumber -= 1;
+  this.setState({ executionNumber });
+}
+
 function increaseRepetitionNumber() {
   let { repetitionNumber } = this.state;
   if (!repetitionNumber) {
@@ -67,6 +84,8 @@ function onSelectFocus(categoryId) {
 export {
   increaseWeight,
   lowerWeight,
+  increaseExecutionNumber,
+  lowerExecutionNumber,
   increaseRepetitionNumber,
   lowerRepetitionNumber,
   increaseRestTime,

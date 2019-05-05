@@ -23,16 +23,16 @@ const styles = StyleSheet.create({
   exerciseNameContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: '45%',
+    width: '40%',
   },
   multiInfoContainer: {
     flex: 1,
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   infoContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    width: '33%',
   },
 });
 
@@ -74,9 +74,11 @@ export default class ExerciseLine extends Component {
     const {
       exercise, onChooseExercise, selectionMode,
     } = this.props;
-    const { weight, repetitionNumber, restTime } = exercise;
+    const {
+      weight, repetitionNumber, executionNumber, restTime,
+    } = exercise;
     const weightString = getWeightString(weight);
-    const repString = getRepString(repetitionNumber);
+    const repString = getRepString({ executionNumber, repetitionNumber });
     const restString = getRestString(restTime);
     const lineStyle = this.getLineStyle();
 
@@ -87,7 +89,7 @@ export default class ExerciseLine extends Component {
           this.animateLineOpacity();
           onChooseExercise(exercise);
         }}
-        activeOpacity={selectionMode ? 1 : 0.2}
+        activeOpacity={selectionMode ? 1 : 0.1}
       >
         <Animated.View style={lineStyle}>
           <Image source={customExerciseIcon} style={commonStyles.smallIcon} />
