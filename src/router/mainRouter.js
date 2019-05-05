@@ -18,8 +18,8 @@ const exerciseNavigation = createStackNavigator({
 });
 
 const sessionsNavigation = createStackNavigator({
-  Sessions,
   NewSession,
+  Sessions,
 });
 
 const DrawerNavigator = createDrawerNavigator({
@@ -27,7 +27,7 @@ const DrawerNavigator = createDrawerNavigator({
   Home,
   Exercises: exerciseNavigation,
   Sessions: sessionsNavigation,
-  NewSession,
+  NewSession: sessionsNavigation,
   SessionReport,
 }, {
   contentComponent: DrawerContent,
