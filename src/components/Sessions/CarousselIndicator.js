@@ -1,29 +1,33 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Animated } from 'react-native';
 import colors from '../../globals/colors';
 
 const dotRadius = 6;
+const dotMarginRight = 5;
+export const dotSpacing = dotRadius * 2 + dotMarginRight;
 
 const styles = StyleSheet.create({
   container: {
+    alignItems: 'center',
+  },
+  dotContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
   },
   staticDot: {
     width: dotRadius * 2,
     height: dotRadius * 2,
     borderRadius: dotRadius,
     borderWidth: 1,
-    borderColor: 'white',
-    marginRight: 5,
+    borderColor: colors.electricYellow,
+    marginRight: dotMarginRight,
   },
   dynamicDot: {
     width: dotRadius * 2,
     height: dotRadius * 2,
     borderRadius: dotRadius,
+    opacity: 0.9,
     backgroundColor: colors.white,
     position: 'absolute',
-    left: 0,
   },
 });
 
@@ -35,15 +39,17 @@ function StaticDots({ slideNumber }) {
   return dotArray;
 }
 
-function DynamicDot() {
-  return <View style={styles.dynamicDot} />;
+function DynamicDot({ dynamicDotPosition }) {
+  return <Animated.View style={[styles.dynamicDot, { left: dynamicDotPosition }]} />;
 }
 
-export default function carousselIndicator({ slideNumber }) {
+export default function carousselIndicator({ slideNumber, dynamicDotPosition }) {
   return (
     <View style={styles.container}>
-      <StaticDots slideNumber={slideNumber} />
-      <DynamicDot />
+      <View style={styles.dotContainer}>
+        <DynamicDot dynamicDotPosition={dynamicDotPosition} />
+        <StaticDots slideNumber={slideNumber} />
+      </View>
     </View>
   );
 }
