@@ -8,6 +8,8 @@ import commonStyles from '../../globals/commonStyles';
 import headerStyle from '../../globals/header';
 import CircleButton from '../../components/commons/buttons/CircleButton';
 
+import { getSessionsWithExerciseArray } from '../../utils/sessions';
+
 export default class Sessions extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'SESSIONS',
@@ -19,10 +21,11 @@ export default class Sessions extends Component {
 
 
   render() {
-    const { sessions, navigation } = this.props;
+    const { exercises, sessions, navigation } = this.props;
+    const sessionsWithExerciseArray = getSessionsWithExerciseArray({ sessions, exercises });
     return (
       <View style={commonStyles.AHprimaryContainer}>
-        <SessionsCaroussel />
+        <SessionsCaroussel sessions={sessionsWithExerciseArray} />
         <CircleButton
           centerElement={{ type: 'icon', value: 'addIcon' }}
           onPress={() => { navigation.navigate('NewSession'); }}

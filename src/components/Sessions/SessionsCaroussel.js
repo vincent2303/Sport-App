@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 
 import SessionSlide from './SessionSlide';
+import EditButton from '../commons/buttons/EditButton';
+import CarousselIndicator from './CarousselIndicator';
 
 import dimensions from '../../globals/dimensions';
 
@@ -16,20 +18,26 @@ const styles = StyleSheet.create({
 
 export default class SessionsCaroussel extends Component {
   render() {
+    const { sessions } = this.props;
     return (
-      <View style={styles.container}>
-        <ScrollView
-          horizontal
-          pagingEnabled
-          overScrollMode="never"
-          showsHorizontalScrollIndicator={false}
-          bounces={false}
-        >
-          <SessionSlide />
-          <SessionSlide />
-          <SessionSlide />
-        </ScrollView>
+      <View>
+        <View style={styles.container}>
+          <ScrollView
+            horizontal
+            pagingEnabled
+            overScrollMode="never"
+            showsHorizontalScrollIndicator={false}
+            bounces={false}
+          >
+            {sessions.map((session, index) => (
+              <SessionSlide key={session.id} session={session} sessionIndex={index} />
+            ))}
+          </ScrollView>
+          <EditButton />
+        </View>
+        <CarousselIndicator slideNumber={sessions.length} />
       </View>
+
     );
   }
 }

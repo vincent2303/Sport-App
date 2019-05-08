@@ -3,6 +3,7 @@ import Sessions from './Sessions';
 
 const mapStateToProps = state => ({
   sessions: state.sessionsReducer.sessions,
+  exercises: state.exercisesReducer.exercises,
 });
 
 const mapDispatchToProps = null;

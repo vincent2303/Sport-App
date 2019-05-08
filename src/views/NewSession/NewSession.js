@@ -77,11 +77,12 @@ export default class NewSession extends Component {
   onSaveSession = () => {
     const SessionToSave = this.state;
     SessionToSave.id = idGenerator();
-    const { setSessions, sessions } = this.props;
+    const { setSessions, sessions, navigation } = this.props;
     const { isValid, missingString } = checkSessionValidity(SessionToSave);
     if (isValid) {
       sessions.push(this.state);
       setSessions(sessions);
+      navigation.navigate('Sessions');
     } else {
       Alert.alert('Requiered fields missing', missingString);
     }

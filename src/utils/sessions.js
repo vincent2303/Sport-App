@@ -64,4 +64,23 @@ function getReduxSessions(sessions) {
   return sessions.map(getSessionWithReplacedExerciseArray);
 }
 
-export { checkSessionValidity, getStorableSessions, getReduxSessions };
+function getExerciseIdMap(exersises) {
+  const exerciseIdMap = new Map();
+  exersises.forEach((exercise) => {
+    exerciseIdMap.set(exercise.id, exercise);
+  });
+  return exerciseIdMap;
+}
+
+function getSessionsWithExerciseArray({ exercises, sessions }) {
+  const exerciseIdMap = getExerciseIdMap(exercises);
+  return sessions.map((session) => {
+    const exerciseIdArray = Array.from(session.exerciseIdMap.keys());
+    const exerciseArray = exerciseIdArray.map(id => exerciseIdMap.get(id));
+    return Object.assign({}, session, { exerciseArray });
+  });
+}
+
+export {
+  checkSessionValidity, getStorableSessions, getReduxSessions, getSessionsWithExerciseArray,
+};

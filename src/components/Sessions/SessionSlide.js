@@ -1,5 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import SessionHeader from './SessionHeader';
+import SessionExerciseList from './SessionExerciseList';
 import dimensions, { height, width } from '../../globals/dimensions';
 import colors from '../../globals/colors';
 
@@ -11,14 +13,23 @@ const styles = StyleSheet.create({
     padding: dimensions.margin,
     justifyContent: 'space-between',
   },
+  flideFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
 });
 
-
-export default function SessionSlide() {
+export default function SessionSlide({ session, sessionIndex }) {
+  const { name, sessionTime, exerciseArray } = session;
   return (
     <View style={styles.slideContainer}>
-      <Text>aaaaaa</Text>
-      <Text>bbbbbb</Text>
+      <View>
+        <SessionHeader name={name} sessionIndex={sessionIndex} sessionTime={sessionTime} />
+        <SessionExerciseList exerciseArray={exerciseArray} />
+      </View>
+      <View>
+        <View />
+      </View>
     </View>
   );
 }
