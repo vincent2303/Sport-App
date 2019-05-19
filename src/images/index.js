@@ -1,9 +1,13 @@
-import wolfLogo from './yellowWolfLogo.png';
 import customExerciseIcon from './customExerciseIcon.png';
 import addIcon from './addIcon.png';
 import whiteMinus from './whiteMinus.png';
 import whitePlus from './whitePlus.png';
+import vLogo from './v_logo.png';
 
 export {
-  wolfLogo, customExerciseIcon, addIcon, whiteMinus, whitePlus,
+  customExerciseIcon,
+  addIcon,
+  whiteMinus,
+  whitePlus,
+  vLogo,
 };

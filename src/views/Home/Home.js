@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
-  Text, View, StatusBar,
+  Text, View, StatusBar, Image,
 } from 'react-native';
 import styles from './style';
 
 import DrawerMenu from '../../components/drawer/DrawerMenu';
 import CircleButton from '../../components/commons/buttons/CircleButton';
-import Logo from '../../components/commons/Logo';
 import commonStyles from '../../globals/commonStyles';
+import { vLogo } from '../../images';
 
 export default class Home extends Component {
   static navigationOptions = () => ({
@@ -22,7 +22,10 @@ export default class Home extends Component {
         <DrawerMenu onPress={navigation.openDrawer} />
         <View style={styles.logoAndTextContainer}>
           <View style={styles.logoContainer}>
-            <Logo />
+            <Image
+              source={vLogo}
+              style={styles.logoImage}
+            />
           </View>
           <Text style={styles.title}>App Name</Text>
           <Text style={styles.subTitle}>

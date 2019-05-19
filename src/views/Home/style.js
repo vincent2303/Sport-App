@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
   logoContainer: {
     width: '100%',
     height: '50%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   title: {
     fontSize: dimensions.fontSize.big,
@@ -25,6 +27,11 @@ const styles = StyleSheet.create({
     fontSize: dimensions.fontSize.largeText,
     fontWeight: '100',
     color: colors.white,
+  },
+  logoImage: {
+    width: 200,
+    height: 200,
+    resizeMode: 'contain',
   },
 });
 
