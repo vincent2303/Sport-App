@@ -36,7 +36,7 @@ export default class Sessions extends Component {
         />
         <CircleButton
           centerElement={{ type: 'icon', value: 'addIcon' }}
-          onPress={() => { navigation.navigate('EditSession'); }}
+          onPress={() => { navigation.navigate('EditSession', { title: 'NEW SESSION' }); }}
         />
       </View>
     );

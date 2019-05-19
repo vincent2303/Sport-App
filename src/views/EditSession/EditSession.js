@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 
 export default class EditSession extends Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'NEW SESSION',
+    title: navigation.getParam('title', 'EDIT SESSION'),
     ...headerStyle,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack(null)} />
