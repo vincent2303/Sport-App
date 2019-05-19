@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import NewSession from './NewSession';
+import EditSession from './EditSession';
 import { setSessions } from '../../redux/functions/sessions';
 
 const mapStateToProps = state => ({
@@ -12,4 +12,4 @@ const mapDispatchToProps = {
   setSessions,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewSession);
+export default connect(mapStateToProps, mapDispatchToProps)(EditSession);

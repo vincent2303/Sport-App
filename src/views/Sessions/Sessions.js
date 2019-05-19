@@ -19,16 +19,24 @@ export default class Sessions extends Component {
     ),
   });
 
+  editSession =({ sessionToEdit }) => {
+    const { navigation } = this.props;
+    navigation.navigate('EditSession', { sessionToEdit });
+  }
+
 
   render() {
     const { exercises, sessions, navigation } = this.props;
     const sessionsWithExerciseArray = getSessionsWithExerciseArray({ sessions, exercises });
     return (
       <View style={commonStyles.AHprimaryContainer}>
-        <SessionsCaroussel sessions={sessionsWithExerciseArray} />
+        <SessionsCaroussel
+          sessions={sessionsWithExerciseArray}
+          editSession={this.editSession}
+        />
         <CircleButton
           centerElement={{ type: 'icon', value: 'addIcon' }}
-          onPress={() => { navigation.navigate('NewSession'); }}
+          onPress={() => { navigation.navigate('EditSession'); }}
         />
       </View>
     );

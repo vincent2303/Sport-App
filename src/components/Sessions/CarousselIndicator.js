@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
     width: dotRadius * 2,
     height: dotRadius * 2,
     borderRadius: dotRadius,
-    opacity: 0.9,
-    backgroundColor: colors.white,
+    opacity: 0.8,
+    backgroundColor: colors.electricYellow,
     position: 'absolute',
   },
 });

@@ -8,7 +8,7 @@ import DrawerContent from '../views/DrawerContent';
 import SplashScreen from '../views/SplashScreen';
 import NewExercise from '../views/NewExercise';
 import EditExercise from '../views/EditExercise';
-import NewSession from '../views/NewSession';
+import EditSession from '../views/EditSession';
 
 const stackNavigator = createStackNavigator({
   Home,
@@ -16,7 +16,7 @@ const stackNavigator = createStackNavigator({
   NewExercise,
   EditExercise,
   Sessions,
-  NewSession,
+  EditSession,
   SessionReport,
 });
 

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 
 export default function EditButton({ onPress }) {
   return (
-    <TouchableOpacity onpress={onPress} style={styles.container}>
+    <TouchableOpacity onPress={onPress} style={styles.container}>
       <Text style={[commonsStyles.AHregularWhiteText, styles.editText]}>EDIT</Text>
     </TouchableOpacity>
   );

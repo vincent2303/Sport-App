@@ -41,7 +41,7 @@ export default class ExerciseLine extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      animatedOpacity: new Animated.Value(0.3),
+      animatedOpacity: new Animated.Value(props.selected ? 1 : 0.3),
     };
   }
 

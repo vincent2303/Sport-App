@@ -2,7 +2,7 @@ import { addIdToArrayOfObjects } from '../utils/idGenerators';
 
 const armsExercises = [
   {
-    name: 'Arms exo',
+    name: 'Arms 1',
     weight: 5,
     executionNumber: 13,
     repetitionNumber: 3,
@@ -10,7 +10,7 @@ const armsExercises = [
     categoryId: 0,
   },
   {
-    name: 'push up',
+    name: 'Arms 2',
     weight: 15,
     executionNumber: 13,
     repetitionNumber: 4,
@@ -20,7 +20,7 @@ const armsExercises = [
 ];
 const torsoExercises = [
   {
-    name: 'Abs',
+    name: 'Abs 1',
     weight: 22,
     executionNumber: 13,
     repetitionNumber: 2,
@@ -28,7 +28,7 @@ const torsoExercises = [
     categoryId: 1,
   },
   {
-    name: 'Abs weight',
+    name: 'Abs 2',
     weight: 22,
     executionNumber: 13,
     repetitionNumber: 4,
@@ -39,7 +39,7 @@ const torsoExercises = [
 
 const legsExercises = [
   {
-    name: 'Abs weight',
+    name: 'legs 1',
     weight: 22,
     executionNumber: 13,
     repetitionNumber: 4,
@@ -47,7 +47,7 @@ const legsExercises = [
     categoryId: 2,
   },
   {
-    name: 'Abs weight',
+    name: 'legs 2',
     weight: 22,
     executionNumber: 13,
     repetitionNumber: 4,
@@ -58,7 +58,7 @@ const legsExercises = [
 
 const backExercises = [
   {
-    name: 'Abs weight',
+    name: 'back 1',
     weight: 22,
     executionNumber: 13,
     repetitionNumber: 4,
@@ -66,7 +66,7 @@ const backExercises = [
     categoryId: 3,
   },
   {
-    name: 'Abs weight',
+    name: 'back 2',
     weight: 22,
     executionNumber: 13,
     repetitionNumber: 4,

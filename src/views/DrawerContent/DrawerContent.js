@@ -7,7 +7,7 @@ export default class DrawerContent extends Component {
   navigateToSessions = () => {
     const { navigation, sessions } = this.props;
     if (!sessions.length) {
-      navigation.navigate('NewSession');
+      navigation.navigate('EditSession');
     } else {
       navigation.navigate('Sessions');
     }

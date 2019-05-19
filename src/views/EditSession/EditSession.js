@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class NewSession extends Component {
+export default class EditSession extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'NEW SESSION',
     ...headerStyle,
@@ -33,11 +33,23 @@ export default class NewSession extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      name: null,
-      exerciseIdMap: new Map(),
-      sessionTime: null,
-    };
+    const { navigation } = props;
+    const sessionToEdit = navigation.getParam('sessionToEdit', null);
+    if (!sessionToEdit) { // create new session
+      this.state = {
+        name: null,
+        exerciseIdMap: new Map(),
+        sessionTime: null,
+        id: idGenerator(),
+      };
+    } else { // edit existing session
+      const {
+        id, name, sessionTime, exerciseIdMap,
+      } = sessionToEdit;
+      this.state = {
+        id, name, sessionTime, exerciseIdMap,
+      };
+    }
   }
 
   onChangeSessionName = ({ text }) => {
@@ -76,11 +88,15 @@ export default class NewSession extends Component {
 
   onSaveSession = () => {
     const SessionToSave = this.state;
-    SessionToSave.id = idGenerator();
     const { setSessions, sessions, navigation } = this.props;
     const { isValid, missingString } = checkSessionValidity(SessionToSave);
     if (isValid) {
-      sessions.push(this.state);
+      const editSessionIndex = sessions.findIndex( // -1 if new session
+        session => session.id === SessionToSave.id,
+      );
+      if (editSessionIndex >= 0) {
+        sessions[editSessionIndex] = SessionToSave;
+      } else { sessions.push(this.state); }
       setSessions(sessions);
       navigation.navigate('Sessions');
     } else {
@@ -92,7 +108,6 @@ export default class NewSession extends Component {
     const { exercises, categories } = this.props;
     const { exerciseIdMap, name, sessionTime } = this.state;
     const exercisePerCategoryIdMap = getExercisePerCategoryIdMap({ exercises, categories });
-
     return (
       <View style={commonsStyles.AHprimaryContainer}>
         <ScrollView style={styles.container}>
@@ -123,7 +138,7 @@ export default class NewSession extends Component {
           </View>
         </ScrollView>
         <RectangleButton
-          title="create"
+          title="save"
           type="add"
           onPress={this.onSaveSession}
         />

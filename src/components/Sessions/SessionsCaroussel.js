@@ -27,17 +27,26 @@ export default class SessionsCaroussel extends Component {
     super(props);
     this.state = {
       dynamicDotPosition: new Animated.Value(0),
+      onPage: 0,
     };
   }
 
   updatePage = ({ nativeEvent }) => {
     const xOffset = nativeEvent.contentOffset.x;
-    const isOnPage = getPage(xOffset);
+    const onPage = getPage(xOffset);
+    this.setState({ onPage });
     const { dynamicDotPosition } = this.state;
     Animated.timing(dynamicDotPosition, {
-      toValue: dotSpacing * isOnPage,
+      toValue: dotSpacing * onPage,
       duration: 200,
     }).start();
+  }
+
+  onEditPress = () => {
+    const { onPage } = this.state;
+    const { sessions, editSession } = this.props;
+    const sessionToEdit = sessions[onPage];
+    editSession({ sessionToEdit });
   }
 
   render() {
@@ -58,7 +67,7 @@ export default class SessionsCaroussel extends Component {
               <SessionSlide key={session.id} session={session} sessionIndex={index} />
             ))}
           </ScrollView>
-          <EditButton />
+          <EditButton onPress={this.onEditPress} />
         </View>
         <CarousselIndicator
           slideNumber={sessions.length}
